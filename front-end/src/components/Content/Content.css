@@ -1,0 +1,12 @@
+.inform{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 2rem;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-shadow: 0 0 20px rgba(0,0,0,0.6);
+}

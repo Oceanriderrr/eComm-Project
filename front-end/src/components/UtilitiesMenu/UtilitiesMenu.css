@@ -1,0 +1,17 @@
+.support{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px;
+	display: flex;
+}
+a{
+	margin: 0 20px;
+	color: #fff;
+	font-size: 2rem;
+	transition: all 400ms ease;
+}
+
+a:hover{
+	color: #222;
+}
