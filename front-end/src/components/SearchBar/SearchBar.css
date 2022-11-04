@@ -1,0 +1,29 @@
+.searchBarBox{
+    width: 100%;
+    height: 7%;
+    position: absolute;
+    background: #212121;
+    bottom:0%;
+    border-top: 1px solid white;
+}
+
+.headerSearch{
+    width: 80%;
+    border-radius:2em;
+    border: 1px solid white;
+    height:40px;
+    margin-top: 1%;
+    text-align: center;
+
+    position: relative;
+    
+    background-color: rgba(0,0,0,0.1);
+    color: white;
+    margin-left : 2%;
+}
+
+.headerSearch:focus-within{
+    
+    box-shadow: 10px 8px 4px 2px rgba(255,255,255,0.5);
+}
+
