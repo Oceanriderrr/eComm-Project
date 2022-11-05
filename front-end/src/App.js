@@ -1,22 +1,32 @@
 
 import './App.css';
+
+
+
+// Import Components
 import Aside from './components/Aside/Aside';
 import HeaderNav from './components/HeaderNav/HeaderNav'
-import Header from './components/Header/Header';
-import SearchBar from './components/SearchBar/SearchBar';
-import Content from './components/Content/Content';
-import UtilitiesMenu from './components/UtilitiesMenu/UtilitiesMenu';
+
+import Footer from './components/Footer/Footer';
+
+import Pages from './components/Pages/Pages';
+// Import Pages
+
 function App() {
   return (
     <div className="App">
-    <Header />
-<HeaderNav />
-<Content />
-<Aside />
-<SearchBar />
-<UtilitiesMenu />
+    {/* Components that belong to every page */}
+
+    <HeaderNav />
+    <Aside />
+    <div className='pageContent'>
+   <Pages />
+    </div>
+ 
+    <Footer />
   </div>
   );
 }
+
 
 export default App;

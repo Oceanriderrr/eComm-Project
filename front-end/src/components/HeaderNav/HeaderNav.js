@@ -1,26 +1,35 @@
 import "./HeaderNav.css"
 import { FaShoppingCart } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 function HeaderNav(){
     return(
 <div className ="headerNavBox">
-<div className ="support">
-       <a>
-    <FaShoppingCart />
-   </a> 
 
-        <a>
-        <button  onclick="myFunction()" className = "userCircle">
-           <h3 className="userInitial">I</h3>
-        </button>
-       </a> 
-        <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
+
+<div className="searchBarBox">
+<input className ="headerSearch" type="search" placeholder="Search"></input>
+</div>
+
+
+
+<div className="iconDiv">
+    <a>
+     <FaShoppingCart /> 
+    </a>
+</div>
+
+  
+   <div className="iconDiv">
+    <a>
+     <FaUser /> 
+    </a>
+   </div>
+   
+
+
 
         
-</div>
+
 
 
 </div>

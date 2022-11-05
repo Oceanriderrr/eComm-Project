@@ -1,4 +1,6 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 .fa-2x {
 font-size: 2em;
 }
@@ -26,7 +28,7 @@ top:0;
 bottom:0;
 height:93%;
 left:0;
-width:60px;
+width:15%;
 overflow:hidden;
 -webkit-transition:width .05s linear;
 transition:width .05s linear;
@@ -63,9 +65,9 @@ transition:all .1s linear;
 position:relative;
 display:table-cell;
 width:60px;
-height:36px;
+height:60px;
 text-align:center;
-vertical-align:middle;
+vertical-align:right;
 font-size:18px;
 }
 
@@ -114,10 +116,11 @@ color:#fff;
 background-color:#5fa2db;
 }
 .area {
+position: relative;
 float: left;
 background: #e2e2e2;
-width: 100%;
-height: 100%;
+width: 100px;
+height: 100px;
 }
 @font-face {
   font-family: 'Titillium Web';
@@ -127,3 +130,13 @@ height: 100%;
 }
 
 
+
+
+
+
+@media screen and (max-width: 480px) {
+  .main-menu{
+width:10%;
+
+  }
+  }
