@@ -1,104 +1,105 @@
 
 
 import "./Aside.css"
+
 function Aside() {
     return (
-      <div>
-        <div class="area"></div>
-
-
-<nav class="main-menu">
+      <div className='asideMenu'>
+    
+      <nav className="main-menu">
             <ul>
                 <li>
                     <a href="/">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Dashboard
+                        <i className="fa fa-home fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            Home
                         </span>
                     </a>
                   
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
-                            Stars Components
+                <li className="has-subnav">
+                    <a href="/swap">
+                        <i className="fa fa-trade fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            Swap
                         </span>
                     </a>
                     
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-list fa-2x"></i>
-                        <span class="nav-text">
-                            Forms
+                <li className="has-subnav">
+                    <a href="/products">
+                       <i className="fa fa-list fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            Products
                         </span>
                     </a>
                     
                 </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Pages
+                <li className="has-subnav">
+                    <a href="/collections">
+                       <i className="fa fa-folder-open fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            Collections
                         </span>
                     </a>
                    
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-bar-chart-o fa-2x"></i>
-                        <span class="nav-text">
-                            Graphs and Statistics
+                    <a href="/contact">
+                        <i className="fa fa-bar-chart-o fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            Contact
                         </span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-font fa-2x"></i>
-                        <span class="nav-text">
-                           Quotes
+                    <a href="/about">
+                        <i className="fa fa-font fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                           About Us
                         </span>
                     </a>
                 </li>
                 <li>
-                   <a href="#">
-                       <i class="fa fa-table fa-2x"></i>
-                        <span class="nav-text">
-                            Tables
+                   <a href="/faq">
+                       <i className="fa fa-table fa-2x nav-icon"></i>
+                        <span className="nav-text">
+                            FAQ
                         </span>
                     </a>
                 </li>
+
                 <li>
-                   <a href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
+                    <a href="/documentation">
+                       <i className="fa fa-info fa-2x nav-icon"></i>
+                        <span className="nav-text">
                             Documentation
                         </span>
                     </a>
                 </li>
-            </ul>
-
-            <ul class="logout">
                 <li>
-                   <a href="#">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
+                   <a href="/login">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Login
                         </span>
                     </a>
-                </li>  
+                </li> 
+
+                <li>
+                   <a href="/register">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Register
+                        </span>
+                    </a>
+                </li> 
             </ul>
-        </nav>  
-        
+
+            
+         
+        </nav>
+
             </div>
     );
   }

@@ -15,10 +15,8 @@ body {
 	
 }
 
+/* This will style whats in the square for our pages */
 
 
-@media screen and (min-width: 480px) {
-    .main-menu{
-      height:30%;
-    }
-    }
+
+

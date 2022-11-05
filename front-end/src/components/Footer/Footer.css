@@ -1,0 +1,56 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height:10%;
+    background-color: #212121;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 2px solid white;
+  }
+
+
+  /* Heres for the title on the footer */
+.footertitle h1{
+    color:white;
+
+}
+
+.footertitle{
+    margin: 1em;
+    margin-right: 40%;
+    width: 40%;
+    display: flex;
+    position: relative;
+}
+
+
+/* heres for the tools we embed into the footer */
+
+.footerTools{
+display: flex;
+position: relative;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .footertitle {
+      font-size: 11px;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 480px) {
+    .footertitle {
+      font-size: 10px;
+    }
+  }
+
+
+
+

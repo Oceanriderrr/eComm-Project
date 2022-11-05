@@ -15,7 +15,6 @@ function UtilitiesMenu(){
     <a href="" target="_blank">
 	<MdColorLens />
     </a>
-
 </div>
     );
 }
