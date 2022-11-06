@@ -1,7 +1,7 @@
 .pageContent{
-    position: absolute;
+    position: relative;
     height: 90vh;
-    width: 81%;
+    width: 100%;
     border: 1px solid black;
 
     top: 7%;
@@ -12,6 +12,8 @@
     display: flex; 
     align-items: center;
     justify-content: center;
+
+    overflow-y: auto;
 }
 
 
