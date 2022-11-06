@@ -1,4 +1,5 @@
 import "./Pages.css"
+import "./css/Register.css"
 import "./css/Swap.css"
 import {Route,Routes} from "react-router-dom";
 
@@ -111,23 +112,84 @@ function Home(props) {
 
     );
   }
+
+  // Login Page ......................................................................
   
+  //TODO....AFTER LOGIN A LOG OUT BUTTON NEEDS RENDERED.....
+
+
   function Login(props){
     return(
-
-        <h1>This is the Login page</h1>
-
+      <div>
+        <div className="heading">
+        <h1><b>LOGIN </b></h1>
+        </div>
+            <div className="form-body">
+                <div className="userName">
+                    <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
+                    <br></br>
+                    <input  type="text" name="" id="userName"  className="form__input"placeholder="User Name" required/>
+                </div>
+                <div className="password">
+                    <label className="form__label" for="password"><i><b>Password:</b></i></label>
+                    <br></br>
+                    <input className="form__input" type="password"  id="password" placeholder="Password" required/>
+                </div>
+                <br></br>
+                <div class="login">
+              <button type="submit" class="btn">Login</button>
+                </div>
+            </div>
+      </div>
     );
   }
-  
+
+  // Login Page ......................................................................
+
+  // Registration Page................................................................
+
+    // TODO....RENDER USER TO LOGIN PAGE AFTER REGISTRATION.....
+
+
   function Register(props){
     return(
-
-        <h1>This is the Register page</h1>
+    
+  <div>
+        <div className="heading">
+        <h1><b>REGISTER HERE</b></h1>
+        </div>
+        <div className="form-body">
+              <div className="userName">
+                  <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
+                  <br></br>
+                  <input  type="text" name="" id="userName"  className="form__input"placeholder="User Name" required/>
+              </div>
+              <div className="email">
+                  <label className="form__label" for="email"><i><b>Email:</b></i></label>
+                  <br></br>
+                  <input  type="email" id="email" className="form__input" placeholder="Email" required/>
+              </div>
+              <div className="password">
+                  <label className="form__label" for="password"><i><b>Password:</b></i></label>
+                  <br></br>
+                  <input className="form__input" type="password"  id="password" placeholder="Password" required/>
+              </div>
+              <div className="confirm-password">
+                  <label className="form__label" for="confirmPassword"><i><b>Confirm Password:</b></i></label>
+                  <br></br>
+                  <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password" required/>
+              </div>
+              <br></br>
+              <div class="register">
+              <button type="submit" class="btn">Register</button>
+              </div>
+          </div>
+  </div>
 
     );
   }
-  
+  // Registration Page................................................................
+
   function FAQ(props){
     return(
 
