@@ -25,7 +25,7 @@ function MainContent(){
 function Home(props) {
     return(
   
-  <h1>This is the Home page</h1>
+  <h1>Welcome to the official MRW digital products store!</h1>
   
   
     );
@@ -34,7 +34,13 @@ function Home(props) {
   function About(props) {
     return(
   
-  <h1>This is the about page</h1>
+  <div>
+    <h1>About our shop</h1>
+
+    <img src="https://via.placeholder.com/500x200"></img>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam aliquam magnam similique tempora veniam vero expedita obcaecati at temporibus corrupti, pariatur et totam? Dolor delectus dolorem sapiente, assumenda ex harum.</p>
+  </div>
+     
 
   
     );
@@ -43,10 +49,36 @@ function Home(props) {
   
   function Products(props) {
     return(
-
-<h1>anything we put here renders products page</h1>
-
-    );
+      <div>
+        <h1>Product Name</h1>
+        <div>
+          <img src="https://via.placeholder.com/150x150" alt="product image"></img>
+          <p>Short description will be templated here</p>
+        </div>
+        <div>
+          <h3>Product Description</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam aliquam magnam similique tempora veniam vero expedita obcaecati at temporibus corrupti, pariatur et totam? Dolor delectus dolorem sapiente, assumenda ex harum.</p>
+        </div>
+        <div>
+          <h3>Specification</h3>
+          <ul>
+            <li>Template</li>
+            <li>Three</li>
+            <li>or Four</li>
+            <li>specifications</li>
+          </ul>
+        </div>
+        <div>
+          Space for cutomer reviews 
+        </div>
+        <div>
+          <h3>Price: $Money</h3>
+          <btn>ADD TO CART</btn>
+        </div>
+      
+        
+      </div>
+     );
   }
   
   function Collections(props) {
