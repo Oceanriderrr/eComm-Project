@@ -132,6 +132,21 @@ function Home(props) {
         </div>
     </div>
       </div>
+      <div class="modal" id="token_modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Select a Token</h5>
+            <button id="modal_close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="token_list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     );
   }
@@ -163,7 +178,8 @@ function Home(props) {
   function FAQ(props){
     return(
 
-        <h1>This is the faq page</h1>
+        <h1>Question</h1>
+   
 
     );
   }
