@@ -15,10 +15,10 @@ font-size:20px;
 }
 
 
-.main-menu:hover,nav.main-menu.expanded {
+/* .main-menu:hover,nav.main-menu.expanded {
 width:250px;
 overflow:visible;
-}
+} */
 
 .main-menu {
 background:#212121;
@@ -26,9 +26,9 @@ border-right:1px solid #e5e5e5;
 position:absolute;
 top:0;
 bottom:0;
-height:93%;
+height:100%;
 left:0;
-width:15%;
+width:15vw;
 overflow:hidden;
 -webkit-transition:width .05s linear;
 transition:width .05s linear;
@@ -43,7 +43,7 @@ margin:7px 0;
 .main-menu li {
 position:relative;
 display:block;
-width:250px;
+width:100%;
 }
 
 .main-menu li>a {
@@ -136,7 +136,18 @@ height: 100px;
 
 @media screen and (max-width: 480px) {
   .main-menu{
-width:10%;
+height: 50px;
+width: 50px;
+
+margin: 1em;
+
 
   }
+.main-menu:hover,nav.main-menu.expanded {
+width:100%;
+height: 100%;
+overflow:visible;
+background-color: white;
+margin: 0em;
+}
   }

@@ -18,8 +18,9 @@ function App() {
     {/* Components that belong to every page */}
 
     <HeaderNav />
-    <Aside />
+    
     <div className='pageContent'>
+    <Aside />
    <Pages />
     </div>
  
