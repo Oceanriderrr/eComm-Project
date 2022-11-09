@@ -96,10 +96,26 @@ function Aside() {
                 </li> 
 
                 <li>
-                   <a href="/register">
+                   <a href="/createProduct">
                          <i className="fa fa-power-off fa-2x"></i>
                         <span className="nav-text">
-                            Employee Login
+                            Create Product
+                        </span>
+                    </a>
+                </li> 
+                <li>
+                   <a href="/editProduct">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Edit Product
+                        </span>
+                    </a>
+                </li> 
+                <li>
+                   <a href="/deleteProduct">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Delete Product
                         </span>
                     </a>
                 </li> 
