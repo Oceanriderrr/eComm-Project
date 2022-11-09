@@ -1,6 +1,7 @@
 import "./Pages.css"
 import "./css/Register.css"
 import "./css/Swap.css"
+import  {useState} from "react";
 import {Route,Routes} from "react-router-dom";
 
 function MainContent(){
@@ -163,79 +164,112 @@ function Home(props) {
   // Login Page ......................................................................
   
   //TODO....AFTER LOGIN A LOG OUT BUTTON NEEDS RENDERED.....
+  // TODO ADD IN THE LOGIN SERVICE
 
+  function Login(){
 
-  function Login(props){
-    return(
-      <div>
-        <div className="heading">
-        <h1><b>LOGIN </b></h1>
-        </div>
-            <div className="form-body">
-                <div className="userName">
-                    <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
-                    <br></br>
-                    <input  type="text" name="" id="userName"  className="form__input"placeholder="User Name" required/>
-                </div>
-                <div className="password">
-                    <label className="form__label" for="password"><i><b>Password:</b></i></label>
-                    <br></br>
-                    <input className="form__input" type="password"  id="password" placeholder="Password" required/>
-                </div>
-                <br></br>
-                <div class="login">
-              <button type="submit" class="btn">Login</button>
-                </div>
-            </div>
-      </div>
-    );
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const handleInputChange = (e) => {
+      const {id , value} = e.target;
+      if(id === "userName"){
+          setUserName(value);
+      }
+      if(id === "password"){
+          setPassword(value);
+      }
   }
-
-  // Login Page ......................................................................
-
-  // Registration Page................................................................
-
-    // TODO....RENDER USER TO LOGIN PAGE AFTER REGISTRATION.....
-
-
-  function Register(props){
-    return(
-    
-  <div>
-        <div className="heading">
-        <h1><b>REGISTER HERE</b></h1>
-        </div>
-        <div className="form-body">
+  return(
+    <div>
+      <div className="heading">
+      <h1><b>LOGIN </b></h1>
+      </div>
+          <div className="form-body">
               <div className="userName">
                   <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
                   <br></br>
-                  <input  type="text" name="" id="userName"  className="form__input"placeholder="User Name" required/>
-              </div>
-              <div className="email">
-                  <label className="form__label" for="email"><i><b>Email:</b></i></label>
-                  <br></br>
-                  <input  type="email" id="email" className="form__input" placeholder="Email" required/>
+                  <input className="form__input" type="text" name="userName" id="userName" placeholder="User Name" value={userName} onChange = {(e) => handleInputChange(e)}/>
               </div>
               <div className="password">
                   <label className="form__label" for="password"><i><b>Password:</b></i></label>
                   <br></br>
-                  <input className="form__input" type="password"  id="password" placeholder="Password" required/>
-              </div>
-              <div className="confirm-password">
-                  <label className="form__label" for="confirmPassword"><i><b>Confirm Password:</b></i></label>
-                  <br></br>
-                  <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password" required/>
+                  <input className="form__input" type="password" name="password" id="password" placeholder="Password" value={password} onChange = {(e) => handleInputChange(e)}/>
               </div>
               <br></br>
-              <div class="register">
-              <button type="submit" class="btn">Register</button>
+              <div className="login">
+            <button type="submit" class="btn">Login</button>
               </div>
           </div>
-  </div>
+    </div>
+  );
+};
 
-    );
-  }
-  // Registration Page................................................................
+// Login Page ......................................................................
+
+// Registration Page................................................................
+
+  // TODO....REDIRECT USER TO LOGIN PAGE AFTER REGISTRATION.....
+
+
+function Register(){
+
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const handleInputChange = (e) => {
+    const {id , value} = e.target;
+    if(id === "userName"){
+        setUserName(value);
+    }
+    if(id === "email"){
+        setEmail(value);
+    }
+    if(id === "password"){
+        setPassword(value);
+    }
+    if(id === "confirmPassword"){
+      setConfirmPassword(value);
+    }
+
+}
+  return(
+  
+<div>
+      <div className="heading">
+      <h1><b>REGISTER HERE</b></h1>
+      </div>
+      <div className="form-body">
+            <div className="userName">
+                <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
+                <br></br>
+                <input className="form__input" type="text" name="userName" id="userName" placeholder="User Name" value={userName} onChange = {(e) => handleInputChange(e)}/>
+            </div>
+            <div className="email">
+                <label className="form__label" for="email"><i><b>Email:</b></i></label>
+                <br></br>
+                <input className="form__input" type="email" name="email" id="email" placeholder="Email" value={email} onChange = {(e) => handleInputChange(e)}/>
+            </div>
+            <div className="password">
+                <label className="form__label" for="password"><i><b>Password:</b></i></label>
+                <br></br>
+                <input className="form__input" type="password" name="password" id="password" placeholder="Password" value={password} onChange = {(e) => handleInputChange(e)}/>
+            </div>
+            <div className="confirm-password">
+                <label className="form__label" for="confirmPassword"><i><b>Confirm Password:</b></i></label>
+                <br></br>
+                <input className="form__input" type="password" name="repassword" id="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange = {(e) => handleInputChange(e)}/>
+            </div>
+            <br></br>
+            <div className="register">
+            <button type="submit" class="btn">Register</button>
+            </div>
+        </div>
+</div>
+
+  );
+}
+// Registration Page................................................................
 
   function FAQ(props){
     return(

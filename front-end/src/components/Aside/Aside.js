@@ -94,6 +94,15 @@ function Aside() {
                         </span>
                     </a>
                 </li> 
+
+                <li>
+                   <a href="/register">
+                         <i className="fa fa-power-off fa-2x"></i>
+                        <span className="nav-text">
+                            Employee Login
+                        </span>
+                    </a>
+                </li> 
             </ul>
 
             
