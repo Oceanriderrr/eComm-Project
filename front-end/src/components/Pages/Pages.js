@@ -24,6 +24,9 @@ function MainContent(){
     <Route path = "/documentation" element={<Documentation/>}/>
     <Route path = "/404" element={<PageNotFound/>}/>
     <Route path = "/newPage" element={<NewPage/>}/>
+    <Route path = "/createProduct" element={<CreateProduct/>}/>
+    <Route path = "/editProduct" element={<EditProduct/>}/>
+    <Route path = "/deleteProduct" element={<DeleteProduct/>}/>
     </Routes>  
 
     );
@@ -372,6 +375,25 @@ function Register(){
  
       <h1>This is the new page page</h1>
 
+    );
+  }
+
+  // create product page ...............
+  function CreateProduct(props){
+    return(
+      <h1>This is our admin only create product page</h1>
+    );
+  }
+  // edit product page ...............
+  function EditProduct(props){
+    return(
+      <h1>This is our admin only edit product page</h1>
+    );
+  }
+  // create product page ...............
+  function DeleteProduct(props){
+    return(
+      <h1>This is our admin only delete product page</h1>
     );
   }
 export default MainContent
