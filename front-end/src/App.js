@@ -19,7 +19,7 @@ function App() {
  <div class="content"> 
 
 <HeaderNav />
- <Aside /> 
+ <Aside loggedIn = {false} /> 
       <div className="pageContent">
  <Pages />
    </div>

@@ -224,17 +224,18 @@ function Home(props) {
 
   function Login(){
 
-    const [userName, setUserName] = useState("");
+    const [email,setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const handleInputChange = (e) => {
-      const {id , value} = e.target;
-      if(id === "userName"){
-          setUserName(value);
-      }
-      if(id === "password"){
-          setPassword(value);
-      }
-  }
+  //   const handleInputChange = (e) => {
+  //     const {id , value} = e.target;
+  //     if(id === "userName"){
+  //         setUserName(e.target.value);
+  //     }
+  //     if(id === "password"){
+  //         setPassword(e.target.value);
+  //     }
+  // }
+
   return(
     <div>
       <div className="heading">
@@ -244,12 +245,18 @@ function Home(props) {
               <div className="userName">
                   <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
                   <br></br>
-                  <input className="form__input" type="text" name="userName" id="userName" placeholder="User Name" value={userName} onChange = {(e) => handleInputChange(e)}/>
+                  <input type = "text" value={email} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setEmail(e.target.value);
+        }}></input>
               </div>
               <div className="password">
                   <label className="form__label" for="password"><i><b>Password:</b></i></label>
                   <br></br>
-                  <input className="form__input" type="password" name="password" id="password" placeholder="Password" value={password} onChange = {(e) => handleInputChange(e)}/>
+                  <input type = "password" value={password} name= "password" onChange={e => {
+                    console.log(e.target.value);
+                  setPassword(e.target.value)
+                  }}></input>
               </div>
               <br></br>
               <div className="login">
@@ -273,22 +280,22 @@ function Register(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const handleInputChange = (e) => {
-    const {id , value} = e.target;
-    if(id === "userName"){
-        setUserName(value);
-    }
-    if(id === "email"){
-        setEmail(value);
-    }
-    if(id === "password"){
-        setPassword(value);
-    }
-    if(id === "confirmPassword"){
-      setConfirmPassword(value);
-    }
+//   const handleInputChange = (e) => {
+//     const {id , value} = e.target;
+//     if(id === "userName"){
+//         setUserName(value);
+//     }
+//     if(id === "email"){
+//         setEmail(value);
+//     }
+//     if(id === "password"){
+//         setPassword(value);
+//     }
+//     if(id === "confirmPassword"){
+//       setConfirmPassword(value);
+//     }
 
-}
+// }
   return(
   
 <div>
@@ -299,22 +306,34 @@ function Register(){
             <div className="userName">
                 <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
                 <br></br>
-                <input className="form__input" type="text" name="userName" id="userName" placeholder="User Name" value={userName} onChange = {(e) => handleInputChange(e)}/>
+        <input type = "text" value={userName} name= "email" onChange={e => {
+        console.log(e.target.value);
+        setUserName(e.target.value);
+        }}></input>
             </div>
             <div className="email">
                 <label className="form__label" for="email"><i><b>Email:</b></i></label>
                 <br></br>
-                <input className="form__input" type="email" name="email" id="email" placeholder="Email" value={email} onChange = {(e) => handleInputChange(e)}/>
+                <input type = "text" value={email} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setEmail(e.target.value);
+        }}></input>
             </div>
             <div className="password">
                 <label className="form__label" for="password"><i><b>Password:</b></i></label>
                 <br></br>
-                <input className="form__input" type="password" name="password" id="password" placeholder="Password" value={password} onChange = {(e) => handleInputChange(e)}/>
+                <input type = "text" value={password} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setPassword(e.target.value);
+        }}></input>
             </div>
             <div className="confirm-password">
                 <label className="form__label" for="confirmPassword"><i><b>Confirm Password:</b></i></label>
                 <br></br>
-                <input className="form__input" type="password" name="repassword" id="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange = {(e) => handleInputChange(e)}/>
+                <input type = "text" value={confirmPassword} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setConfirmPassword(e.target.value);
+        }}></input>
             </div>
             <br></br>
             <div className="register">
