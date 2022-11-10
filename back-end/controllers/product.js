@@ -7,8 +7,8 @@ module.exports = {
             .catch(next);
     },
     getOne: (req,res,next) => {
-        const id = req.params.id;
-        models.Product.findById(id).then((products)=> res.send(products)).catch(next);
+        const productId = req.params.productId;
+        models.Product.findById(productId).then((products)=> res.send(products)).catch(next);
     },
     post: (req, res, next) => {
         const { description } = req.body;
