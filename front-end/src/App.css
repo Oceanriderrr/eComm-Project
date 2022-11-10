@@ -18,5 +18,24 @@ body {
 /* This will style whats in the square for our pages */
 
 
+.App{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
+.content{
+    display: flex;
 
 
+
+    
+}
+
+
+@media screen and (max-width: 480px){
+    .content{
+        display: block;
+       
+    }
+}

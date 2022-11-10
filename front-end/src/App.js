@@ -16,14 +16,14 @@ function App() {
   return (
     <div className="App">
     {/* Components that belong to every page */}
+ <div class="content"> 
 
-    <HeaderNav />
-    
-    <div className='pageContent'>
-    <Aside />
-   <Pages />
-    </div>
- 
+<HeaderNav />
+ <Aside /> 
+      <div className="pageContent">
+ <Pages />
+   </div>
+ </div>
     <Footer />
   </div>
   );

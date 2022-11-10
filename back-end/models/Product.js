@@ -5,14 +5,11 @@ const { String, Number, Boolean, ObjectId } = Schema.Types;
 
 const productSchema = new mongoose.Schema({
     productName:{type: String, },
-    imageURL : {type: String,validate: validImage},
-    shortDescription:{type: String,},
+    imageURL : {type: String,},
+    seo:{type: Array,},
     description:{type: String, },
-    specs:{type: String,},
     price:{type: Number, },
     vendor:{type: String, },
-
-
 });
 
 module.exports = new Model('Product', productSchema);

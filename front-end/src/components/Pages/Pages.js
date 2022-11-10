@@ -4,6 +4,9 @@ import "./css/Swap.css"
 import  {useState} from "react";
 import {Route,Routes} from "react-router-dom";
 
+
+import Posts from '../Posts/Posts'
+import Post from '../Posts/Post'
 function MainContent(){
     return(
 
@@ -11,6 +14,7 @@ function MainContent(){
     <Route path = "/" element={<Home/>}/>
     <Route path = "/about" element={<About/>}/>
     <Route path = "/products" element={<Products/>}/>
+    <Route path = "/details/product/:productId" element={<ProductDetails/>}/>
     <Route path = "/collections" element={<Collections/>}/>
     <Route path = "/swap" element={<Swap/>}/>
     <Route path = "/contact" element={<Contact/>}/>
@@ -25,12 +29,9 @@ function MainContent(){
     );
 }
 function Home(props) {
-    return(
-  
-  <h1>Welcome to the official MRW digital products store!</h1>
-  
-  
-    );
+<div>
+
+</div>
   }
   
   function About(props) {
@@ -48,18 +49,72 @@ function Home(props) {
     );
   }
   
+  function Products(props){
+    const posts = [
+      {productName:"Product 1",
+      imageURL : "https://via.placeholder.com /150" ,
+      seo:["tag1","tag2","tag3"],
+      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+      price:23.05,
+      vendor:"Leumas",
+      productId:1
+    }, 
   
-  function Products(props) {
+      {productName:"Product 2",
+      imageURL : "https://placeholder.com/150x150" ,
+      seo:["tag1","tag2","tag3"],
+      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+      price:19.95,
+      vendor:"Leumas"},
+  
+      {productName:"Product 3",
+      imageURL : "https://placeholder.com/150x150" ,
+      seo:["tag1","tag2","tag3"],
+      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+      price:23,
+      vendor:"Leumas"},
+  
+      {productName:"Product 4",
+      imageURL : "https://placeholder.com/150x150" ,
+      seo:["tag1","tag2","tag3"],
+      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+      price:4300,
+      vendor:"Leumas"},
+    ]
+  
+  
+    const loadPosts = posts.map((post,index)=>{
+      return( <Post key={index} productName = {post.productName}  imageURL = {post.imageURL}  seo = {post.seo}  price = {post.price} description={`${index} -  ${post.description}`} vendor={post.vendor} productId={post.productId} />)
+    })
+  
+  
+  
+      return(
+    
+    <div>      
+    <div className="Main">
+
+    <Posts>
+      {loadPosts}
+    </Posts>
+    </div>
+    </div>
+    
+    
+      );
+  }
+  
+  function ProductDetails(props) {
     return(
-      <div>
-        <h1>Product Name</h1>
+      <div class = "productDetailsPage">
+        <h1>{props.productName}</h1>
         <div>
-          <img src="https://via.placeholder.com/150x150" alt="product image"></img>
-          <p>Short description will be templated here</p>
+          <img src={props.imageURL} alt="product image"></img>
+          <p>{props.seo}</p>
         </div>
         <div>
-          <h3>Product Description</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam aliquam magnam similique tempora veniam vero expedita obcaecati at temporibus corrupti, pariatur et totam? Dolor delectus dolorem sapiente, assumenda ex harum.</p>
+          <h3>Description</h3>
+          <p>{props.description}</p>
         </div>
         <div>
           <h3>Specification</h3>
@@ -74,7 +129,7 @@ function Home(props) {
           Space for cutomer reviews 
         </div>
         <div>
-          <h3>Price: $Money</h3>
+          <h3>Price: {props.price}</h3>
           <btn>ADD TO CART</btn>
         </div>
       
@@ -85,8 +140,10 @@ function Home(props) {
   
   function Collections(props) {
     return(
+<div>
+    <h1>This is the Collections page</h1>
+</div>
 
-  <h1>This is the Collections page</h1>
 
   
     );
@@ -95,11 +152,7 @@ function Home(props) {
   
   function Swap(props){
     return(
-
-      
-
-
-      <div >
+      <div>
 <div className="swapwindow"> 
       <li class="nav-item">
             <button id="login_button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with MetaMask</button>

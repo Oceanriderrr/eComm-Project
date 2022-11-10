@@ -1,0 +1,179 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: calc(2em + 2vh) calc(1.5em + 1vmin);
+    grid-auto-flow: row dense;
+  }
+  
+  .card__image {
+    display: block;
+    max-width: 100%;
+    border-radius:25%;
+  }
+  
+  /* ==== Styles Related to the callout ==== */
+  .grid .card:nth-child(14) {
+    grid-column: 1/-1;
+    grid-row: span 2;
+    align-self: center;
+  }
+  @media (min-width: 712px) {
+    .grid .card:nth-child(14) {
+      grid-column: 2/-2;
+    }
+  }
+  .grid .card:nth-child(14) .card__image {
+    margin: 0 auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  @media (min-width: 712px) {
+    .grid .card:nth-child(14) .card__image {
+      height: 100%;
+    }
+  }
+  
+  /* ==== Additional Styles not related to grid layout ==== */
+  .container {
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(-webkit-min-content, 1200px) minmax(1em, 1fr);
+    grid-template-columns: minmax(1em, 1fr) minmax(min-content, 1200px) minmax(1em, 1fr);
+    grid-template-areas: "l-gutter heading r-gutter" "l-gutter content r-gutter";
+    grid-row-gap: 1em;
+  }
+  
+  .grid {
+    grid-area: content;
+    margin-bottom: 2em;
+    margin-right: 2em;
+  }
+  
+  .card__link {
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .card__link:hover {
+    color: #2d2d2d;
+  }
+  
+  .card__link:hover .card__image {
+    transform: scale(1.04);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+  }
+  
+  .card__link:hover .card__text {
+    transform: rotate(2deg) translate3d(3%, 1%, 0) scale(1.02);
+  }
+  
+  .card__link:hover .card__price {
+    transform: rotate(-2deg) translate3d(-3%, -1%, 0) scale(1.02);
+  }
+  
+  .card__image {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    transition: transform 200ms ease-out, -webkit-clip-path 200ms ease-out;
+    transition: transform 200ms ease-out, clip-path 200ms ease-out;
+    transition: transform 200ms ease-out, clip-path 200ms ease-out, -webkit-clip-path 200ms ease-out;
+  }
+  
+  .card__price {
+    font-weight: 600;
+    transition: transform 300ms ease-out;
+  }
+  
+  .card__text {
+    padding: 1em 0 0.5em;
+    font-weight: 200;
+    transition: transform 300ms ease-out;
+  }
+  
+  h3 {
+    grid-area: heading;
+    font-size: calc(1.25rem + 2vw);
+    padding: 1em 0 0.5em;
+    line-height: 1.3;
+    max-width: 18ex;
+    text-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
+  }
+  
+  @media (min-width: 1000px) {
+    h3 {
+      font-size: 2.5rem;
+    }
+  }
+  h3 > span {
+    font-weight: 700;
+  }
+  
+
+  
+  body {
+    font-family: system-ui;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  body::before {
+    content: "";
+    width: 120%;
+    height: 40vh;
+    position: absolute;
+    left: -20%;
+    top: -20%;
+    transform: rotate(-10deg);
+    background-color: #ffeb3b;
+    z-index: -1;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+
+  .addToCart{
+    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    border: none;
+    color: #fff;
+    background-color: #4f545c;
+    transition: background-color .17s ease,color .17s ease;
+
+  }
+
+  .card{
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 2em;
+    padding:0.5em;
+  }
+
+  .card:hover{
+    scale: 1.3;
+    /* outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #fdfdfd; */
+  
+    box-shadow:
+      inset 0 0 50px #fff,
+      inset 20px 0 80px #f0f,
+      inset -20px 0 80px #0ff,
+      inset 20px 0 300px #f0f,
+      inset -20px 0 300px #0ff,
+      0 0 50px #fff,
+      -10px 0 80px #f0f,
+      10px 0 80px #0ff;
+
+
+  }
