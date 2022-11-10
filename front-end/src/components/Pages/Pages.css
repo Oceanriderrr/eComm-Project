@@ -1,18 +1,30 @@
 .pageContent{
-    position: relative;
-    height: 90vh;
+
+
     width: 100%;
+    z-index:9999999;
+    padding: 1em;
 
+    border: 1px solid white;
 
-    top: 7%;
-    right: 0%;
-
-
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-
-    overflow-y: auto;
+    
+}
+.productDetailsPage{
+    height: 100vh;
 }
 
+@media screen and (max-width: 480px){
+    .pageContent{
+        height: 100%;
 
+    }
+}
+
+@media (max-width: 750px) {
+    .pageContent{
+        width: 100vw;
+    }
+}
