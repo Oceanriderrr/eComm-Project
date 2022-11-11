@@ -5,11 +5,8 @@
     z-index:9999999;
     padding: 1em;
 
-    border: 1px solid white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* border: 1px solid white; */
+margin-top: 5em;
     
 }
 .productDetailsPage{

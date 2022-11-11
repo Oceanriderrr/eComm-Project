@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
 	background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
-	
+	overflow-x: hidden;
 }
 
 /* This will style whats in the square for our pages */

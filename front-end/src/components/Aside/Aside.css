@@ -22,21 +22,30 @@ overflow:visible;
 
 .main-menu {
 background:#212121;
-border-right:1px solid #e5e5e5;
+border-right:2px solid #e5e5e5;
+border-bottom:1px solid #e5e5e5;
 position:sticky;
 top:0;
 bottom:0;
-height:100vh;
+height:auto;
 left:0;
-width:15vw;
+width:10vw;
 
 -webkit-transition:width .05s linear;
 transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
 }
+.ham{
+      display: none;
+      
+    }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
+  .ham{
+    display: block;
+
+  }
   ul{
     display:none;
   }
@@ -58,9 +67,10 @@ z-index:1000;
     margin: 0em;
     }
 
+   
 
 }
-
+ 
 .main-menu>ul {
 margin:7px 0;
 }
@@ -177,4 +187,66 @@ overflow:visible;
 background-color: white;
 margin: 0em;
 }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Hamburger */
+
+  .ham8 .top {
+    stroke-dasharray: 40 160;
+  }
+  .ham8 .middle {
+    stroke-dasharray: 40 142;
+    transform-origin: 50%;
+    transition: transform 400ms;
+  }
+  .ham8 .bottom {
+    stroke-dasharray: 40 85;
+    transform-origin: 50%;
+    transition: transform 400ms, stroke-dashoffset 400ms;
+  }
+  .ham8.active .top {
+    stroke-dashoffset: -64px;
+  }
+  .ham8.active .middle {
+    stroke-dashoffset: -20px;
+    transform: rotate(90deg);
+  }
+  .ham8.active .bottom {
+    stroke-dashoffset: -64px;
+  }
+  
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  .hamRotate180.active {
+    transform: rotate(180deg);
+  }
+  .line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:#fff;
+    stroke-width:5.5;
+    stroke-linecap:round;
   }

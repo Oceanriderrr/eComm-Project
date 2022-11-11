@@ -1,6 +1,8 @@
 import "./HeaderNav.css"
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
+
+import { BsFillPatchPlusFill } from 'react-icons/bs';
 function HeaderNav(){
     return(
 <div className ="headerNavBox">
@@ -15,6 +17,11 @@ function HeaderNav(){
 <div className="iconDiv">
     <a>
      <FaShoppingCart /> 
+    </a>
+</div>
+<div className="iconDiv">
+    <a>
+     <BsFillPatchPlusFill /> 
     </a>
 </div>
 
