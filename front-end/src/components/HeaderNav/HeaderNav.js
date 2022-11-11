@@ -20,7 +20,7 @@ function HeaderNav(){
     </a>
 </div>
 <div className="iconDiv">
-    <a>
+    <a href="/createProduct">
      <BsFillPatchPlusFill /> 
     </a>
 </div>

@@ -394,9 +394,85 @@ function Register(){
   }
 
   // create product page ...............
-  function CreateProduct(props){
+  function CreateProduct(){
+    const [productName, setProductName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [imageURL, setImageURL] = useState("");
+    const [vendor, setVendor] = useState("");
+    const [seo, setSEO] = useState("");
+
+
+
     return(
-      <h1>This is our admin only create product page</h1>
+      <div>
+      <div className="heading">
+      <h1><b>Create New Product</b></h1>
+      </div>
+      <div className="form-body">
+            <div className="">
+                <label className="form__label" for="productName"><i><b>Product Name:</b></i></label>
+                <br></br>
+        <input type = "text" value={productName} name= "email" onChange={e => {
+        console.log(e.target.value);
+        setProductName(e.target.value);
+        }}></input>
+            </div>
+
+            <div className="">
+                <label className="form__label" for="price"><i><b>Price:</b></i></label>
+                <br></br>
+                <input type = "text" value={price} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setPrice(e.target.value);
+        }}></input>
+            </div>
+
+
+            <div className="">
+                <label className="form__label" for="productDescription"><i><b>Description:</b></i></label>
+                <br></br>
+                <input type = "text" value={description} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setDescription(e.target.value);
+        }}></input>
+            </div>
+
+
+            <div className="">
+                <label className="form__label" for="vendor"><i><b>Vendor:</b></i></label>
+                <br></br>
+                <input type = "text" value={vendor} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setVendor(e.target.value);
+        }}></input>
+            </div>
+
+            <div className="">
+                <label className="form__label" for="seo"><i><b>SEO rank:</b></i></label>
+                <br></br>
+                <input type = "text" value={seo} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setSEO(e.target.value);
+        }}></input>
+            </div>
+            
+            <div className="">
+                <label className="form__label" for="ImageURL"><i><b>ImageURL:</b></i></label>
+                <br></br>
+                <input type = "text" value={imageURL} name= "email" onChange={e => {
+          console.log(e.target.value);
+        setImageURL(e.target.value);
+        }}></input>
+            </div>
+            
+            <br></br>
+            <div className="register">
+            <button type="submit" class="btn">Register Product</button>
+            </div>
+        </div>
+</div>
+
     );
   }
   // edit product page ...............
