@@ -7,6 +7,17 @@ import {Route,Routes} from "react-router-dom";
 
 import Posts from '../Posts/Posts'
 import Post from '../Posts/Post'
+
+
+
+
+// Swap imports
+
+import "./swap/swap"
+
+
+
+
 function MainContent(){
     return(
 
@@ -155,12 +166,17 @@ function Home(props) {
   
   function Swap(props){
     return(
-      <div>
-<div className="swapwindow"> 
-      <li class="nav-item">
+<div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My DEX Aggregator</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
             <button id="login_button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with MetaMask</button>
           </li>
-             <div class ="container">
+          </ul>
+      </nav>
+<div class ="container">
+
         <div class="row">
             <div class="col col-md-6 offset-md-3" id="window">
                 <h4>Swap</h4>
@@ -189,8 +205,7 @@ function Home(props) {
             </div>
         </div>
     </div>
-      </div>
-      <div class="modal" id="token_modal" tabindex="-1" role="dialog">
+    <div class="modal" id="token_modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -205,7 +220,7 @@ function Home(props) {
         </div>
       </div>
     </div>
-    </div>
+</div>
     );
   }
   
