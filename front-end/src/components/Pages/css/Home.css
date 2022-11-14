@@ -1,0 +1,76 @@
+#btn_area {
+    text-align: center;
+    margin: 40px 0 30px 0;
+  }
+  
+  .btn {
+    padding: 10px 25px;
+    margin: 0 6px;
+    background: #e5e5e5;
+    display: inline-block;
+    font-size: 0.9em;
+    transition: 0.3s ease all;
+  }
+  
+  .btn:hover {
+    background: #e1e1e1;
+    cursor: pointer;
+  }
+  
+  .active {
+    background: #ffffff;
+  }
+  
+  #parent {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 1.2em;
+    -moz-column-gap: 1.2em;
+    column-gap: 1.2em;
+    margin: 1.5%;
+    padding: 0;
+    font-size: .8em;
+  }
+  
+  .item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    -webkit-transition: 1s ease all;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+  }
+  
+  .item img {
+    max-width: 100%;
+  }
+
+
+  @media only screen and (min-width: 600px) {
+    #parent {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+  
+  @media only screen and (min-width: 900px) {
+    #parent {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    #parent {
+      -moz-column-count: 4;
+      -webkit-column-count: 4;
+      column-count: 4;
+    }
+  }

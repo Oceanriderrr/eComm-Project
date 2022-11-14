@@ -1,6 +1,11 @@
 import "./Pages.css"
 import "./css/Register.css"
 import "./css/Swap.css"
+import "./css/Home.css"
+import "./css/Login.css"
+import "./css/Contact.css"
+
+
 import  {useState} from "react";
 import {Route,Routes} from "react-router-dom";
 
@@ -8,12 +13,15 @@ import {Route,Routes} from "react-router-dom";
 import Posts from '../Posts/Posts'
 import Post from '../Posts/Post'
 
+import Collection from '../Collections/Collection'
+import Collectionz from '../Collections/Collections'
 
-
+import React from 'react';
+import * as Icon from 'react-bootstrap-icons';
 
 // Swap imports
 
-import "./swap/swap"
+
 
 
 
@@ -42,16 +50,21 @@ function MainContent(){
 
     );
 }
-function Home(props) {
-<div>
+function Home() {
+<div className="pageContent">
+<h4>
+ HomePageContent 
+</h4>
+
 
 </div>
+
   }
   
   function About(props) {
     return(
   
-  <div>
+  <div className="pageContent">
     <h1>About our shop</h1>
 
     <img src="https://via.placeholder.com/500x200"></img>
@@ -71,7 +84,9 @@ function Home(props) {
       description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
       price:23.05,
       vendor:"Leumas",
-      productId:1
+      productId:1,
+      collections:["collection1","collection2","collection3"],
+
     }, 
   
       {productName:"Product 2",
@@ -79,33 +94,104 @@ function Home(props) {
       seo:["tag1","tag2","tag3"],
       description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
       price:19.95,
-      vendor:"Leumas"},
+      vendor:"Leumas",
+      collections:["collection1","collection2","collection3"]
+    },
   
       {productName:"Product 3",
       imageURL : "https://placeholder.com/150x150" ,
       seo:["tag1","tag2","tag3"],
       description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
       price:23,
-      vendor:"Leumas"},
+      vendor:"Leumas",
+      collections:["collection1","collection2","collection3"]
+    },
   
       {productName:"Product 4",
       imageURL : "https://placeholder.com/150x150" ,
       seo:["tag1","tag2","tag3"],
       description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
       price:4300,
-      vendor:"Leumas"},
+      vendor:"Leumas",
+      collections:["collection1","collection2","collection3"]
+    },
+    {productName:"Product 4",
+    imageURL : "https://placeholder.com/150x150" ,
+    seo:["tag1","tag2","tag3"],
+    description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+    price:4300,
+    vendor:"Leumas",
+    collections:["collection1","collection2","collection3"]
+  },
+  {productName:"Product 4",
+  imageURL : "https://placeholder.com/150x150" ,
+  seo:["tag1","tag2","tag3"],
+  description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+  price:4300,
+  vendor:"Leumas",
+  collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+{productName:"Product 4",
+imageURL : "https://placeholder.com/150x150" ,
+seo:["tag1","tag2","tag3"],
+description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
+price:4300,
+vendor:"Leumas",
+collections:["collection1","collection2","collection3"]
+},
+      
     ]
   
   
     const loadPosts = posts.map((post,index)=>{
-      return( <Post key={index} productName = {post.productName}  imageURL = {post.imageURL}  seo = {post.seo}  price = {post.price} description={`${index} -  ${post.description}`} vendor={post.vendor} productId={post.productId} />)
+      return( <Post key={index} productName = {post.productName}  imageURL = {post.imageURL}  seo = {post.seo}  price = {post.price} description={`${index} -  ${post.description}`} vendor={post.vendor} productId={post.productId} collections = {post.collections} />)
     })
   
   
   
       return(
     
-    <div>      
+    <div className="pageContent">      
     <div className="Main">
 
     <Posts>
@@ -117,7 +203,74 @@ function Home(props) {
     
       );
   }
+    function Collections(props) {
+const posts = [
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+  {
+    collectionName: "Hacker Tech",
+    collectionDescription:"test description 1",
+    relatedProducts:[]
+  },
+
+]
+      const loadPosts = posts.map((post,index)=>{
+        return( <Collection key={index} collectionName = {post.collectionName} collectionDescription = {post.collectionDescription} relatedProducts = {post.relatedProducts} />)
+      })
+
+    return(
+<div className="pageContent">
+
+<Collectionz>
+
+{loadPosts}
+</Collectionz>
+
+
+</div>
+
+
   
+    );
+  }
   function ProductDetails(props) {
     return(
       <div class = "productDetailsPage">
@@ -152,37 +305,28 @@ function Home(props) {
      );
   }
   
-  function Collections(props) {
-    return(
-<div>
-    <h1>This is the Collections page</h1>
-</div>
 
-
-  
-    );
-  }
   
   
   function Swap(props){
     return(
-<div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">My DEX Aggregator</a>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <button id="login_button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with MetaMask</button>
-          </li>
-          </ul>
-      </nav>
-<div class ="container">
+<div class ="pageContent">
+
+
+
+   
+
+<div >
+
+<button id = "login_button" className="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with MetaMask</button>
 
         <div class="row">
-            <div class="col col-md-6 offset-md-3" id="window">
+            <div  id="window">
                 <h4>Swap</h4>
                 <div id="form">
                     <div class="swapbox">
                         <div class="swapbox_select token_select" id="from_token_select">
+                        SELECT A TOKEN
                             <img class="token_img" id="from_token_img"></img>
                             <span id="from_token_text"></span>
                         </div>
@@ -192,6 +336,7 @@ function Home(props) {
                     </div>
                     <div class="swapbox">
                         <div class="swapbox_select token_select" id="to_token_select">
+                        SELECT A TOKEN
                             <img class="token_img" id="to_token_img"></img>
                             <span id="to_token_text"></span>
                         </div>
@@ -220,16 +365,121 @@ function Home(props) {
         </div>
       </div>
     </div>
+
+
 </div>
     );
   }
   
   function Contact(props){
     return(
+{/* <form class="cf">
+  <div class="half left cf">
+    <input type="text" id="input-name" placeholder="Name"></input>
+    <input type="email" id="input-email" placeholder="Email address"></input>
+    <input type="text" id="input-subject" placeholder="Subject"></input>
+  </div>
+  <div class="half right cf">
+    <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
+  </div>  
+  <input type="submit" value="Submit" id="input-submit"></input>
+</form> */},
 
-        <h1>This is the Contact page</h1>
+<div class="pageContent">  
+<section class="contact-page-sec">
+    <div class="containers">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-map-marked"></i>
+              </div>
+              <div class="contact-info-text">
+                <h2>address</h2>
+                <span>1215 Lorem Ipsum, Ch 176080 </span> 
+                <span>Chandigarh , INDIA</span> 
+              </div>
+            </div>            
+          </div>          
+        </div>          
+        <div class="col-md-4">
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-info-text">
+                <h2>E-mail</h2>
+                <span>info@LoremIpsum.com</span> 
+                <span>yourmail@gmail.com</span>
+              </div>
+            </div>            
+          </div>                
+        </div>                
+        <div class="col-md-4">
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-info-text">
+                <h2>office time</h2>
+                <span>Mon - Thu  9:00 am - 4.00 pm</span>
+                <span>Thu - Mon  10.00 pm - 5.00 pm</span>
+              </div>
+            </div>            
+          </div>          
+        </div>          
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="contact-page-form" method="post">
+            <h2>Get in Touch</h2> 
+            <form action="contact-mail.php" method="post">
+              <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="single-input-field">
+                  <input type="text" placeholder="Your Name" name="name"/>
+                </div>
+              </div>  
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="single-input-field">
+                  <input type="email" placeholder="E-mail" name="email" required/>
+                </div>
+              </div>                              
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="single-input-field">
+                  <input type="text" placeholder="Phone Number" name="phone"/>
+                </div>
+              </div>  
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="single-input-field">
+                  <input type="text" placeholder="Subject" name="subject"/>
+                </div>
+              </div>                
+              <div class="col-md-12 message-input">
+                <div class="single-input-field">
+                  <textarea  placeholder="Write Your Message" name="message"></textarea>
+                </div>
+              </div>                                                
+              <div class="single-input-fieldsbtn">
+                <input type="submit" value="Send Now"/>
+              </div>                          
+            </div>
+            </form>   
+          </div>      
+        </div>
+        <div class="col-md-4">        
+          <div class="contact-page-map">
 
-    );
+          </div>          
+        </div>        
+      </div>
+    </div>
+  </section>
+</div>
+);
   }
 
   // Login Page ......................................................................
@@ -252,32 +502,34 @@ function Home(props) {
   // }
 
   return(
-    <div>
-      <div className="heading">
-      <h1><b>LOGIN </b></h1>
-      </div>
-          <div className="form-body">
-              <div className="userName">
-                  <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
-                  <br></br>
-                  <input type = "text" value={email} name= "email" onChange={e => {
-          console.log(e.target.value);
-        setEmail(e.target.value);
-        }}></input>
-              </div>
-              <div className="password">
-                  <label className="form__label" for="password"><i><b>Password:</b></i></label>
-                  <br></br>
-                  <input type = "password" value={password} name= "password" onChange={e => {
+    <div className="pageContent">
+
+          <div class="login-box">
+  <h2>Login</h2>
+  <form>
+    <div class="user-box">
+      <input type="text"  value={email} name="" required=""  onChange={e => {
+                    console.log(e.target.value);
+                  setEmail(e.target.value)
+                  }}></input>
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" value={password} name="" required=""  onChange={e => {
                     console.log(e.target.value);
                   setPassword(e.target.value)
                   }}></input>
-              </div>
-              <br></br>
-              <div className="login">
-            <button type="submit" class="btn">Login</button>
-              </div>
-          </div>
+      <label>Password</label>
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+  </form>
+</div>
     </div>
   );
 };
@@ -313,48 +565,52 @@ function Register(){
 // }
   return(
   
-<div>
-      <div className="heading">
-      <h1><b>REGISTER HERE</b></h1>
-      </div>
-      <div className="form-body">
-            <div className="userName">
-                <label className="form__label" for="userName"><i><b>User Name:</b></i></label>
-                <br></br>
-        <input type = "text" value={userName} name= "email" onChange={e => {
-        console.log(e.target.value);
-        setUserName(e.target.value);
-        }}></input>
-            </div>
-            <div className="email">
-                <label className="form__label" for="email"><i><b>Email:</b></i></label>
-                <br></br>
-                <input type = "text" value={email} name= "email" onChange={e => {
-          console.log(e.target.value);
-        setEmail(e.target.value);
-        }}></input>
-            </div>
-            <div className="password">
-                <label className="form__label" for="password"><i><b>Password:</b></i></label>
-                <br></br>
-                <input type = "text" value={password} name= "email" onChange={e => {
-          console.log(e.target.value);
-        setPassword(e.target.value);
-        }}></input>
-            </div>
-            <div className="confirm-password">
-                <label className="form__label" for="confirmPassword"><i><b>Confirm Password:</b></i></label>
-                <br></br>
-                <input type = "text" value={confirmPassword} name= "email" onChange={e => {
-          console.log(e.target.value);
-        setConfirmPassword(e.target.value);
-        }}></input>
-            </div>
-            <br></br>
-            <div className="register">
-            <button type="submit" class="btn">Register</button>
-            </div>
-        </div>
+<div className="pageContent">
+    
+  
+     
+<div class="login-box">
+  <h2>Login</h2>
+  <form>
+    <div class="user-box">
+      <input type="text"  value={userName} name="" required=""  onChange={e => {
+                    console.log(e.target.value);
+                  setEmail(e.target.value)
+                  }}></input>
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" value={email} name="" required=""  onChange={e => {
+                    console.log(e.target.value);
+                  setPassword(e.target.value)
+                  }}></input>
+      <label>Email</label>
+    </div>
+
+    <div class="user-box">
+      <input type="password" value={password} name="" required=""  onChange={e => {
+                    console.log(e.target.value);
+                  setPassword(e.target.value)
+                  }}></input>
+      <label>Password</label>
+    </div>
+
+    <div class="user-box">
+      <input type="password" value={confirmPassword} name="" required=""  onChange={e => {
+                    console.log(e.target.value);
+                    setConfirmPassword(e.target.value)
+                  }}></input>
+      <label>Re-Password</label>
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+  </form>
+</div>
 </div>
 
   );
@@ -486,5 +742,21 @@ function Register(){
     return(
       <h1>This is our admin only delete product page</h1>
     );
+  }
+
+
+
+
+  function collectionHover(){
+    document.getElementById("collection-cards").onmousemove = e => {
+      for(const card of document.getElementsByClassName("collection-cards")) {
+        const rect = card.getBoundingClientRect(),
+              x = e.clientX - rect.left,
+              y = e.clientY - rect.top;
+    
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      };
+    }
   }
 export default MainContent

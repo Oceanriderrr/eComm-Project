@@ -1,3 +1,8 @@
+
+h1,h2,h3,p{
+    color:white;
+}
+
 .pageContent{
 
 
@@ -7,7 +12,7 @@
 
     /* border: 1px solid white; */
 margin-top: 5em;
-    
+    /* border-top: 2px solid white */
 }
 .productDetailsPage{
     height: 100vh;

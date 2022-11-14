@@ -13,7 +13,7 @@ function Footer(){
        
 <footer>
    
-<h4>Copyright @ PROJECT MRW SHOP</h4>
+<p>Copyright @ PROJECT MRW SHOP</p>
 
         {/* <div class="footerTools">
 

@@ -1,6 +1,12 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+.hamburgerIcon{
+  display:none;
+}
+
+
 .fa-2x {
 font-size: 2em;
 }
@@ -36,19 +42,14 @@ transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
 }
-.ham{
-      display: none;
-      
-    }
+
 
 @media (max-width: 1000px) {
-  .ham{
+  .hamburgerIcon{
     display: block;
 
   }
-  ul{
-    display:none;
-  }
+
   .main-menu{
     height: 50px;
     width: 50px;
@@ -179,9 +180,7 @@ margin: 1em;
 
   }
 
-  .asideMenu{
-    display: none;
-  }
+
 
 
 .main-menu:hover,nav.main-menu.expanded {
@@ -195,8 +194,13 @@ margin: 0em;
 
 
 @media (max-width: 767px){
-  .asideMenu{
-    display: none;
+
+
+  .hamburgerIcon{
+    display: block;
+    position:absolute;
+    top:0;
+    color:white;
   }
 }
 

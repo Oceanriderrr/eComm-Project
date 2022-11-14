@@ -3,10 +3,10 @@ import "./Post.css";
 function Posts(props) {
     return (
 
-      <div className="container">
+      <div className="product-container">
 
     
-      <ul className="grid">
+      <ul className="product-grid">
     {props.children}
      </ul>
       </div>
