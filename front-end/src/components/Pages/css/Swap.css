@@ -1,12 +1,15 @@
 #window{
     margin-top: 50px;
+    margin-bottom:100px;
     background-color: #000;
     color: #fff;
-    padding: 15px;
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 0 5px black;
-    width:80vh;
-    height: 100%;
+    width:100%;
+    border: 1px solid white;
+ 
+  
 }
 .swapbox_select {
     width: 50%;
@@ -43,12 +46,4 @@
     overflow: scroll;   
 }
 
-.container{
-    border-top: 1px solid white;
 
-    width: 90vw;
-    height:100%;
- margin-bottom: 10em;
- margin-top: 5em;
-
-}

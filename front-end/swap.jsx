@@ -1,21 +1,26 @@
 
-import React, { Component } from 'react';
-import Web3 from 'web3'
-import ethereum from 'web3'
-import qs from 'qs'
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js";
+
+// import "https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js";
+// import "https://code.jquery.com/jquery-3.6.0.min.js";
+
+
+
+
+// import Web3 from 'web3';
+// import qs from "qs";
+// const { ethereum } = window
 
 // const BigNumber = require('bignumber.js');
-// // const qs = require('qs');
-// // const web3 = require('web3');
 
 
-
+// let swapPriceJSON;
+// let swapQuoteJSON;
 // let currentTrade = {};
 // let currentSelectSide;
 // let tokens;
-
-
-
 
 // async function init() {
 //     await listAvailableTokens();
@@ -107,7 +112,7 @@ import qs from 'qs'
 //     // Fetch the swap price.
 //     const response = await fetch(`https://api.0x.org/swap/v1/price?${qs.stringify(params)}`);
     
-//     let swapPriceJSON = await response.json();
+//     swapPriceJSON = await response.json();
 //     console.log("Price: ", swapPriceJSON);
     
 //     document.getElementById("to_amount").value = swapPriceJSON.buyAmount / (10 ** currentTrade.to.decimals);
@@ -130,7 +135,7 @@ import qs from 'qs'
 //     // Fetch the swap quote.
 //     const response = await fetch(`https://api.0x.org/swap/v1/quote?${qs.stringify(params)}`);
     
-//     let swapQuoteJSON = await response.json();
+//     swapQuoteJSON = await response.json();
 //     console.log("Quote: ", swapQuoteJSON);
     
 //     document.getElementById("to_amount").value = swapQuoteJSON.buyAmount / (10 ** currentTrade.to.decimals);
@@ -189,3 +194,10 @@ import qs from 'qs'
 // document.getElementById("modal_close").onclick = closeModal;
 // document.getElementById("from_amount").onblur = getPrice;
 // document.getElementById("swap_button").onclick = trySwap;
+
+
+
+
+
+
+

@@ -25,10 +25,10 @@ function App() {
  <div class="content"> 
 
 
- <Aside loggedIn = {true} /> 
-      <div className="pageContent">
+ {/* <Aside loggedIn = {true} />  */}
+
  <Pages />
-   </div>
+
  </div>
     <Footer />
   </div>

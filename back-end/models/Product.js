@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema({
     description:{type: String, },
     price:{type: Number, },
     vendor:{type: String, },
+    collections:{type: Array},
 });
 
 module.exports = new Model('Product', productSchema);
