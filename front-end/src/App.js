@@ -25,7 +25,7 @@ function App() {
  <div class="content"> 
 
 
- {/* <Aside loggedIn = {true} />  */}
+ {/* <Aside loggedIn = {false} />  */}
 
  <Pages />
 

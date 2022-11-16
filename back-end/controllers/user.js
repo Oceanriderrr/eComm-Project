@@ -11,9 +11,13 @@ module.exports = {
 
     post: {
         register: (req, res, next) => {
-            const { username, email, password } = req.body;
-            models.User.create({ username, email, password })
-                .then((createdUser) => res.send(createdUser))
+            const { username, email, password, confirmPassword } = req.body;
+            // Checking for password Match.......
+            if(password !== confirmPassword){                                     
+                return res.status(400).send({message:"Password does not match"});
+            }
+            models.User.create({ username, email, password, confirmPassword })
+                .then((createdUser) => res.send({id:createdUser._id}))
                 .catch(next)
         },
 
@@ -45,6 +49,11 @@ module.exports = {
                 .catch(next);
         }
     },
+
+
+
+
+    // UPDATE AND DELETE FOR USER PROFILE......NOT CURRENTLY USED IN OUR APPLICATION...
 
     put: (req, res, next) => {
         const id = req.params.id;

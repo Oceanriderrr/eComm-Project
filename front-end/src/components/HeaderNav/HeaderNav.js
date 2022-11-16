@@ -1,3 +1,5 @@
+import React from 'react'
+import {Link} from 'react-router-dom';
 import "./HeaderNav.css"
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
@@ -6,39 +8,92 @@ import { BsFillPatchPlusFill } from 'react-icons/bs';
 
 
 
-function HeaderNav(){
+function HeaderNav(props){
+
+   // THIS WILL BE RENDERING PAGES PER COOKIE LOGIN.......................
+
+   let loggedIn = props.loggedIn;
+    let currentRoutes = [];
+  
+    if(loggedIn){
+        currentRoutes = [ 
+         <li class='active'>
+            <Link to="/">
+               HOME
+            </Link>
+        </li>,
+
+        <li>
+            <Link to="/collections">
+               COLLECTIONS
+            </Link>
+        </li>,
+
+         <li><Link to='/products'>PRODUCTS</Link>
+            <ul>
+               <li><Link to='#'>Product 1</Link>
+                  <ul>
+                     <li><Link to='#'>Sub Product</Link></li>
+                     <li><Link to="#">Sub Product</Link></li>
+                  </ul>
+               </li>
+               <li><Link to='#'>Product 2</Link>
+                  <ul>
+                     <li><Link to='#'>Sub Product</Link></li>
+                     <li><Link to="#">Sub Product</Link></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>,
+
+          <li>
+            <Link to='/about'>
+               ABOUT
+            </Link>
+         </li>,
+
+        <li>
+            <Link to="/contact">
+               CONTACT
+            </Link>
+        </li>,
+
+         <li>
+            <Link to='/swap'>
+               SWAP
+            </Link>
+         </li>
+    ]
+    } else {
+        currentRoutes = [
+        <li>
+            <Link to="/user/login">
+            Login
+            </Link>
+         </li>, 
+
+         <li>
+            <Link to="/user/register">
+            Register
+            </Link>  
+        </li> 
+        
+    ]
+      }
+
     return(
 
+
+
+
 <div>
-
-
 <header>
 <nav id='cssmenu'>
-<div class="logo"><a href="/">L.E.U.M.A.S </a></div>
+<div class="logo"><a href="#">L.E.U.M.A.S </a></div>
 <div id="head-mobile"></div>
-<div onclick="" class="button"></div>
+<div onClick="" class="button"></div>
 <ul>
-<li class='active'><a href='#'>HOME</a></li>
-<li><a href='/collections'>COLLECTIONS</a></li>
-<li><a href='/products'>PRODUCTS</a>
-   <ul>
-      <li><a href='#'>Product 1</a>
-         <ul>
-            <li><a href='#'>Sub Product</a></li>
-            <li><a href='#'>Sub Product</a></li>
-         </ul>
-      </li>
-      <li><a href='#'>Product 2</a>
-         <ul>
-            <li><a href='#'>Sub Product</a></li>
-            <li><a href='#'>Sub Product</a></li>
-         </ul>
-      </li>
-   </ul>
-</li>
-<li><a href='/about'>ABOUT</a></li>
-<li><a href='/contact'>CONTACT</a></li>
-<li><a href='/swap'>SWAP</a></li>
+{currentRoutes}
 </ul>
 </nav>
 </header>
@@ -52,18 +107,18 @@ function HeaderNav(){
 
 
 <div className="iconDiv">
-    <a  href="/checkout">
+    <Link to="/checkout">
      <FaShoppingCart /> 
-    </a>
+    </Link>
 
 
-    <a href="/createProduct">
+    <Link to="/createProduct">
      <BsFillPatchPlusFill /> 
-    </a>
+    </Link>
 
-    <a href="/user/profile">
+    <Link to="/user/profile">
      <FaUser /> 
-    </a>
+    </Link>
    </div>
    
 <div className="searchBarBox">
@@ -84,7 +139,7 @@ function myFunction() {
   }
   
   // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+  window.onClick = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
