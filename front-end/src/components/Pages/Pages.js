@@ -5,10 +5,13 @@ import "./css/Home.css"
 import "./css/Login.css"
 import "./css/Contact.css"
 
-
+import React from "react"
 import  {useState} from "react";
 import {Route,Routes} from "react-router-dom";
-
+// The useNavigate is used to direct to specific pages.......
+import {useNavigate} from "react-router-dom";
+import {userRegister} from "../../services";
+import {userLogin} from "../../services";
 
 import Posts from '../Posts/Posts'
 import Post from '../Posts/Post'
@@ -16,7 +19,7 @@ import Post from '../Posts/Post'
 import Collection from '../Collections/Collection'
 import Collectionz from '../Collections/Collections'
 
-import React from 'react';
+
 import * as Icon from 'react-bootstrap-icons';
 
 // Swap imports
@@ -37,8 +40,8 @@ function MainContent(){
     <Route path = "/collections" element={<Collections/>}/>
     <Route path = "/swap" element={<Swap/>}/>
     <Route path = "/contact" element={<Contact/>}/>
-    <Route path = "/login" element={<Login/>}/>
-    <Route path = "/register" element={<Register/>}/>
+    <Route path = "/user/login" element={<Login/>}/>
+    <Route path = "/user/register" element={<Register/>}/>
     <Route path = "/faq" element={<FAQ/>}/>
     <Route path = "/documentation" element={<Documentation/>}/>
     <Route path = "/404" element={<PageNotFound/>}/>
@@ -487,50 +490,68 @@ const posts = [
   //TODO....AFTER LOGIN A LOG OUT BUTTON NEEDS RENDERED.....
   // TODO ADD IN THE LOGIN SERVICE
 
-  function Login(){
+  function Login(props){
 
-    const [email,setEmail] = useState("");
+    const navigate = useNavigate();
+    const [username,setUsername] = useState("");
     const [password, setPassword] = useState("");
-  //   const handleInputChange = (e) => {
-  //     const {id , value} = e.target;
-  //     if(id === "userName"){
-  //         setUserName(e.target.value);
-  //     }
-  //     if(id === "password"){
-  //         setPassword(e.target.value);
-  //     }
-  // }
+ 
+    function loginHandler(event){
+      let hasError = false;
+      event.preventDefault();
+      if(username.length === 0){
+         let hasError = true;
+          alert("Username Required!");
+      }
+      if(password.length === 0){
+         let hasError = true;
+          alert("Password Required!");
+      }
+      if(!hasError){
+        userLogin({
+              username,
+              password
+          }).then((data)=>{
+              console.log(data);
+              return navigate("/collections");
+          })
+      }else{
+          console.log("there was an error, fix and try again!!")
+      }
+    }
+
 
   return(
-    <div className="pageContent">
-
-          <div class="login-box">
-  <h2>Login</h2>
-  <form>
-    <div class="user-box">
-      <input type="text"  value={email} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                  setEmail(e.target.value)
-                  }}></input>
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="password" value={password} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                  setPassword(e.target.value)
-                  }}></input>
-      <label>Password</label>
-    </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Submit
-    </a>
-  </form>
-</div>
-    </div>
+    
+      
+        
+      <div className="pageContent">
+        <div className="login-box">
+          <h1><b>LOGIN</b></h1>
+            <form onSubmit={loginHandler}>
+                <div className="user-box">
+                    <label for="userName"><i><b>User Name:</b></i></label>
+                    <br></br>
+                    <input type = "text" value={username} name= "username" onChange={(e) => {
+                      // console.log(e.target.value);
+                    setUsername(e.target.value);}}>
+                    </input>
+                </div>
+                <div className="user-box">
+                    <label for="password"><i><b>Password:</b></i></label>
+                    <br></br>
+                    <input type = "password" value={password} name= "password" onChange={(e) => {
+                      // console.log(e.target.value);
+                    setPassword(e.target.value)
+                    }}></input>
+                </div>
+                <br></br>
+                <div className="login">
+                <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+      </div>              
   );
 };
 
@@ -541,80 +562,100 @@ const posts = [
   // TODO....REDIRECT USER TO LOGIN PAGE AFTER REGISTRATION.....
 
 
-function Register(){
+  function Register(props){
 
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-//   const handleInputChange = (e) => {
-//     const {id , value} = e.target;
-//     if(id === "userName"){
-//         setUserName(value);
-//     }
-//     if(id === "email"){
-//         setEmail(value);
-//     }
-//     if(id === "password"){
-//         setPassword(value);
-//     }
-//     if(id === "confirmPassword"){
-//       setConfirmPassword(value);
-//     }
-
-// }
-  return(
+    const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
   
-<div className="pageContent">
+    function submitHandler(event){
+      let hasError = false;
+      event.preventDefault();
+      if(username.length === 0){
+         let hasError = true;
+          alert("ASdd username");
+      }
+      if(email.length === 0){
+        let hasError = true;
+         alert("Add email");
+     }
+      if(password.length === 0){
+         let hasError = true;
+          alert("Add password");
+      }
+      if(password !== confirmPassword){
+         let hasError = true;
+          alert("Password does not match");
+      }
+      if(!hasError){
+        userRegister({
+              username,
+              email,
+              password,
+              confirmPassword
+          }).then((data)=>{
+              console.log(data);
+              if(data.id){
+                return navigate("/user/login");
+              }else{
+                console.log("User Creation was not successful");
+              }
+          })
+      }else{
+          console.log("there was an error, fix and try again!!")
+      }
+    }
+    // if(props.loggedIn){
+    //     return navigate("/");
+      // }
+  
+    return(
     
+      <div className="pageContent">
+        <div className="login-box">
+          <h1><b>REGISTER</b></h1>
+          <form onSubmit={submitHandler}> 
+            <div className="user-box">
+              <input type="text"  value={username} name="username" onChange={(e) => {
+                            // console.log(e.target.value);
+                          setUsername(e.target.value);
+                          }}></input>
+              <label>Username</label>
+            </div>
+            <div className="user-box">
+              <input type="text" value={email} name="email" onChange={(e) => {
+                            // console.log(e.target.value);
+                          setEmail(e.target.value);
+                          }}></input>
+              <label>Email</label>
+            </div>
   
-     
-<div class="login-box">
-  <h2>Login</h2>
-  <form>
-    <div class="user-box">
-      <input type="text"  value={userName} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                  setEmail(e.target.value)
-                  }}></input>
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="password" value={email} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                  setPassword(e.target.value)
-                  }}></input>
-      <label>Email</label>
-    </div>
-
-    <div class="user-box">
-      <input type="password" value={password} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                  setPassword(e.target.value)
-                  }}></input>
-      <label>Password</label>
-    </div>
-
-    <div class="user-box">
-      <input type="password" value={confirmPassword} name="" required=""  onChange={e => {
-                    console.log(e.target.value);
-                    setConfirmPassword(e.target.value)
-                  }}></input>
-      <label>Re-Password</label>
-    </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Submit
-    </a>
-  </form>
-</div>
-</div>
-
-  );
-}
+            <div className="user-box">
+              <input type="password" value={password} name="password" onChange={(e) => {
+                            // console.log(e.target.value);
+                          setPassword(e.target.value);
+                          }}></input>
+              <label>Password</label>
+            </div>
+  
+            <div className="user-box">
+              <input type="password" value={confirmPassword} name="confirmPassword" onChange={(e) => {
+                            // console.log(e.target.value);
+                            setConfirmPassword(e.target.value);
+                          }}></input>
+              <label>Re-Password</label>
+            </div>
+            <div>
+            <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+    );
+  }
 // Registration Page................................................................
 
   function FAQ(props){
