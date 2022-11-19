@@ -184,6 +184,7 @@ padding:2em;
 }
 
 @media screen and (max-width: 1000px) {
+
   .logo {
     position: absolute;
     top: 0;
@@ -271,7 +272,7 @@ padding:2em;
     width: 55px;
     height: 46px;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     cursor: pointer;
     z-index: 12399994;
@@ -414,21 +415,30 @@ a{
 	transition: all 400ms ease;
 }
 
-.headerNavBox{
+.iconDiv{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+
 
 }
 
-.iconDiv:hover{
-	color: red;
-  scale: (1.1)
+.iconDiv{
+  position: absolute;
+  right: 0;
+  top:33%;
+
+}
+
+@media (max-width: 740px){
+  .iconDiv{
+    position: relative;
+    margin-top: 1em;
+  }
 }
 
 .headerSearch{
-  width: 85vw;
+  width: 100%;;
   border-radius:2em;
   border: 1px solid white;
   height:40px;

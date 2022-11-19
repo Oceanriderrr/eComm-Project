@@ -6,7 +6,8 @@ import "./css/Login.css"
 import "./css/Contact.css"
 
 import React from "react"
-import  {useState} from "react";
+import {useCookies} from 'react-cookie';
+import {useState , useEffect} from 'react'
 import {Route,Routes} from "react-router-dom";
 // The useNavigate is used to direct to specific pages.......
 import {useNavigate} from "react-router-dom";
@@ -29,31 +30,75 @@ import * as Icon from 'react-bootstrap-icons';
 
 
 
-function MainContent(){
+function MainContent(props){
+  const [cookies, setCookie, removeCookie] = useCookies(["x-auth-token"]);
+	const [userId, setUserId] = useState("");
+	const [loggedIn, setLoggedIn] = useState(
+		cookies["x-auth-token"] ? true : false
+	); 
+
     return(
 
 <Routes>
     <Route path = "/" element={<Home/>}/>
+
     <Route path = "/about" element={<About/>}/>
+
     <Route path = "/products" element={<Products/>}/>
+
     <Route path = "/details/product/:productId" element={<ProductDetails/>}/>
+
+
     <Route path = "/collections" element={<Collections/>}/>
+
+
     <Route path = "/swap" element={<Swap/>}/>
+
+
     <Route path = "/contact" element={<Contact/>}/>
-    <Route path = "/user/login" element={<Login/>}/>
-    <Route path = "/user/register" element={<Register/>}/>
+
+
+    <Route path = "/user/login" element={<Login 								loggedIn={loggedIn}
+								setLoggedIn={setLoggedIn}
+								setCookie={setCookie}
+								setUserId={setUserId}/>}/>
+
+
+    <Route path = "/user/register" element={<Register loggedIn={loggedIn} />}/>
+
+
     <Route path = "/faq" element={<FAQ/>}/>
+
+
     <Route path = "/documentation" element={<Documentation/>}/>
+
+
     <Route path = "/404" element={<PageNotFound/>}/>
+
+
     <Route path = "/newPage" element={<NewPage/>}/>
+
+
     <Route path = "/createProduct" element={<CreateProduct/>}/>
+
+
     <Route path = "/editProduct" element={<EditProduct/>}/>
-    <Route path = "/deleteProduct" element={<DeleteProduct/>}/>
+
+
+    <Route path = "/deleteProduct" element={<DeleteProduct />}/>
+
+ 
     </Routes>  
+
+
+
+
 
     );
 }
-function Home() {
+
+
+function Home(props) {
 <div className="pageContent">
 <h4>
  HomePageContent 
@@ -513,6 +558,7 @@ const posts = [
               password
           }).then((data)=>{
               console.log(data);
+   
               return navigate("/collections");
           })
       }else{
