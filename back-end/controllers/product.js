@@ -10,11 +10,18 @@ module.exports = {
         const productId = req.params.productId;
         models.Product.findById(productId).then((products)=> res.send(products)).catch(next);
     },
-    post: (req, res, next) => {
+    post: {
+
+        createProduct: (req, res, next) => {
+        const { productName } = req.body;
+        const { price } = req.body;
         const { description } = req.body;
+        const { vendor } = req.body;
+        const { collections } = req.body;
+        const { imageURL } = req.body;
         const { _id } = req.user;
 
-        models.Product.create({ description, author: _id })
+        models.Product.create({ productName, price, description, vendor, collections , imageURL })
             .then((createdProduct) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { posts: createdProduct } }),
@@ -25,6 +32,10 @@ module.exports = {
                 res.send(productObj);
             })
             .catch(next);
+        },
+
+
+
     },
 
     put: (req, res, next) => {

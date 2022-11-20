@@ -16,7 +16,7 @@ import Pages from './components/Pages/Pages';
 import{Routes, Route} from "react-router-dom"
 
 // Swap routes
-import React, { Component } from 'react';
+import React from 'react';
 import Web3 from 'web3'
 function App(props) {
 
@@ -26,10 +26,13 @@ function App(props) {
   const [userId, setUserId] = useState("false");
 
 
+
   return (
     <div className="App">
     {/* Components that belong to every page */}
-  <HeaderNav loggedIn = {loggedIn}  removeCookie = {removeCookie} setLoggedIn = {setLoggedIn} setUserId={setUserId} />  
+
+    
+  <HeaderNav loggedIn = {true} removeCookie = {removeCookie} setLoggedIn = {setLoggedIn} setUserId = {setUserId}  />  
  <div class="content"> 
 
 

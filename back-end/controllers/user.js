@@ -8,15 +8,22 @@ module.exports = {
             .then((users) => res.send(users))
             .catch(next)
     },
+    getOne: (req, res, next) => {
+        const {id} = req.params;
+        console.log(id);
+        models.User.findById(id)
+            .then((user) => res.send(user))
+            .catch(next)
+    },
 
     post: {
         register: (req, res, next) => {
-            const { username, email, password, confirmPassword } = req.body;
+            const { username, email, password, confirmPassword,isAdmin } = req.body;
             // Checking for password Match.......
             if(password !== confirmPassword){                                     
                 return res.status(400).send({message:"Password does not match"});
             }
-            models.User.create({ username, email, password, confirmPassword })
+            models.User.create({ username, email, password, confirmPassword,isAdmin })
                 .then((createdUser) => res.send({id:createdUser._id}))
                 .catch(next)
         },

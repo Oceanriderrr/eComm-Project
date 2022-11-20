@@ -16,7 +16,7 @@ function Post(props) {
 
       <div class="buttons">
  <button class="addToCart" href="/add/cart/:productId">Add to Cart</button>
- <button class="" href="/details/product/:productId">Details</button> 
+
       </div>
     </li>
      

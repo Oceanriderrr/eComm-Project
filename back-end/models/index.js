@@ -6,5 +6,6 @@ const TokenBlacklist = require('./TokenBlacklist');
 module.exports = {
     User,
     Product,
-    Collection
+    Collection,
+    TokenBlacklist
 };
