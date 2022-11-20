@@ -11,7 +11,8 @@ const userSchema = new Schema({
     username: {type: String, unique: true, required: true},
     email:{type: String, unique: true, required: true},
     password: {type: String, unique: true, require: true},
-    posts: [{ type: ObjectId, ref: "Product" }]
+    posts: [{ type: ObjectId, ref: "Product" }],
+    isAdmin: {type: Boolean,  value: "false"},
     
 });
 

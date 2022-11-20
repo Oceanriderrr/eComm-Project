@@ -22,10 +22,12 @@ import Collectionz from '../Collections/Collections'
 
 
 import * as Icon from 'react-bootstrap-icons';
+import Create from "../../services/createProduct"
 
 // Swap imports
 
-
+//CRUD ROUTE IMPORTS
+import {createProduct} from "../../services"
 
 
 
@@ -33,6 +35,7 @@ import * as Icon from 'react-bootstrap-icons';
 function MainContent(props){
   const [cookies, setCookie, removeCookie] = useCookies(["x-auth-token"]);
 	const [userId, setUserId] = useState("");
+  const [isAdmin, setIsAdmin] = useState("");
 	const [loggedIn, setLoggedIn] = useState(
 		cookies["x-auth-token"] ? true : false
 	); 
@@ -40,22 +43,22 @@ function MainContent(props){
     return(
 
 <Routes>
-    <Route path = "/" element={<Home/>}/>
+    <Route path = "/" element={<Home  loggedIn={loggedIn}  />}/>
 
-    <Route path = "/about" element={<About/>}/>
+    <Route path = "/about" element={<About  loggedIn={loggedIn}  />}/>
 
-    <Route path = "/products" element={<Products/>}/>
+    <Route path = "/products" element={<Products  loggedIn={loggedIn} />}/>
 
     <Route path = "/details/product/:productId" element={<ProductDetails/>}/>
 
 
-    <Route path = "/collections" element={<Collections/>}/>
+    <Route path = "/collections" element={<Collections  loggedIn={loggedIn}  />}/>
 
 
-    <Route path = "/swap" element={<Swap/>}/>
+    <Route path = "/swap" element={<Swap  loggedIn={loggedIn}  />}/>
 
 
-    <Route path = "/contact" element={<Contact/>}/>
+    <Route path = "/contact" element={<Contact  loggedIn={loggedIn}  />}/>
 
 
     <Route path = "/user/login" element={<Login 								loggedIn={loggedIn}
@@ -79,10 +82,10 @@ function MainContent(props){
     <Route path = "/newPage" element={<NewPage/>}/>
 
 
-    <Route path = "/createProduct" element={<CreateProduct/>}/>
+    <Route path = "/create/product" element={<CreateProduct/>}/>
 
 
-    <Route path = "/editProduct" element={<EditProduct/>}/>
+    <Route path = "/edit/product" element={<EditProduct/>}/>
 
 
     <Route path = "/deleteProduct" element={<DeleteProduct />}/>
@@ -136,97 +139,7 @@ function Home(props) {
       collections:["collection1","collection2","collection3"],
 
     }, 
-  
-      {productName:"Product 2",
-      imageURL : "https://placeholder.com/150x150" ,
-      seo:["tag1","tag2","tag3"],
-      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-      price:19.95,
-      vendor:"Leumas",
-      collections:["collection1","collection2","collection3"]
-    },
-  
-      {productName:"Product 3",
-      imageURL : "https://placeholder.com/150x150" ,
-      seo:["tag1","tag2","tag3"],
-      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-      price:23,
-      vendor:"Leumas",
-      collections:["collection1","collection2","collection3"]
-    },
-  
-      {productName:"Product 4",
-      imageURL : "https://placeholder.com/150x150" ,
-      seo:["tag1","tag2","tag3"],
-      description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-      price:4300,
-      vendor:"Leumas",
-      collections:["collection1","collection2","collection3"]
-    },
-    {productName:"Product 4",
-    imageURL : "https://placeholder.com/150x150" ,
-    seo:["tag1","tag2","tag3"],
-    description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-    price:4300,
-    vendor:"Leumas",
-    collections:["collection1","collection2","collection3"]
-  },
-  {productName:"Product 4",
-  imageURL : "https://placeholder.com/150x150" ,
-  seo:["tag1","tag2","tag3"],
-  description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-  price:4300,
-  vendor:"Leumas",
-  collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
-{productName:"Product 4",
-imageURL : "https://placeholder.com/150x150" ,
-seo:["tag1","tag2","tag3"],
-description:"lorem ipsum dolor sit amet consecector adipscing elit na arak keboura nyebiyeb nehmeed ketral",
-price:4300,
-vendor:"Leumas",
-collections:["collection1","collection2","collection3"]
-},
+
       
     ]
   
@@ -234,6 +147,7 @@ collections:["collection1","collection2","collection3"]
     const loadPosts = posts.map((post,index)=>{
       return( <Post key={index} productName = {post.productName}  imageURL = {post.imageURL}  seo = {post.seo}  price = {post.price} description={`${index} -  ${post.description}`} vendor={post.vendor} productId={post.productId} collections = {post.collections} />)
     })
+  
   
   
   
@@ -419,19 +333,9 @@ const posts = [
     );
   }
   
-  function Contact(props){
+  function Contact(){
     return(
-{/* <form class="cf">
-  <div class="half left cf">
-    <input type="text" id="input-name" placeholder="Name"></input>
-    <input type="email" id="input-email" placeholder="Email address"></input>
-    <input type="text" id="input-subject" placeholder="Subject"></input>
-  </div>
-  <div class="half right cf">
-    <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
-  </div>  
-  <input type="submit" value="Submit" id="input-submit"></input>
-</form> */},
+
 
 <div class="pageContent">  
 <section class="contact-page-sec">
@@ -558,7 +462,8 @@ const posts = [
               password
           }).then((data)=>{
               console.log(data);
-   
+              props.setLoggedIn(true);
+              console.log(props.loggedIn)
               return navigate("/collections");
           })
       }else{
@@ -642,7 +547,7 @@ const posts = [
               password,
               confirmPassword
           }).then((data)=>{
-              console.log(data);
+
               if(data.id){
                 return navigate("/user/login");
               }else{
@@ -737,35 +642,91 @@ const posts = [
   }
 
   // create product page ...............
-  function CreateProduct(){
-    const [productName, setProductName] = useState("");
-    const [description, setDescription] = useState("");
+  function CreateProduct(props){
+
+
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
-    const [imageURL, setImageURL] = useState("");
     const [vendor, setVendor] = useState("");
-    const [seo, setSEO] = useState("");
+    const [description, setDescription] = useState("");
+    const [imageURL, setImageURL] = useState("");
+
+    const navigate = useNavigate();
 
 
+   
+    
+ 
+    // This will be out command if you are not the admin you need to naviagate the fuck out of this pageeeeee
+
+      // if(!props.loggedIn){
+      //   return  <Navigate to="/user/login" replace ={true} />
+      // }
+    
+ 
+    function submitHandler(event){
+      event.preventDefault();
+      let hasError = false;
+      if(description.length === 0){
+        hasError = true;
+      }
+    
+    
+      if(!hasError){
+        createProduct({
+          name,
+          quantity,
+          price,
+          vendor,
+          description,
+          imageURL,
+          
+        },props.cookie).then((data)=>{
+          console.log(data);
+      setDescription("");
+   
+        })
+    }else{
+      console.log("There was an error, fix and try again")
+    }
+    }
 
     return(
       <div>
       <div className="heading">
-      <h1><b>Create New Product</b></h1>
-      </div>
+
+ <h1><b>Create New Product</b></h1>
+
+      <form onSubmit={submitHandler}>
+
+ 
+     
+    
       <div className="form-body">
             <div className="">
                 <label className="form__label" for="productName"><i><b>Product Name:</b></i></label>
                 <br></br>
-        <input type = "text" value={productName} name= "email" onChange={e => {
+        <input type = "text" value={name} name= "name" onChange={e => {
         console.log(e.target.value);
-        setProductName(e.target.value);
+        setName(e.target.value);
         }}></input>
             </div>
 
             <div className="">
-                <label className="form__label" for="price"><i><b>Price:</b></i></label>
+                <label className="form__label" for="quantity"><i><b>quantity:</b></i></label>
                 <br></br>
-                <input type = "text" value={price} name= "email" onChange={e => {
+                <input type = "text" value={quantity} name= "quantity" onChange={e => {
+          console.log(e.target.value);
+        setQuantity(e.target.value);
+        }}></input>
+            </div>
+
+
+            <div className="">
+                <label className="form__label" for="price"><i><b>price:</b></i></label>
+                <br></br>
+                <input type = "text" value={price} name= "price" onChange={e => {
           console.log(e.target.value);
         setPrice(e.target.value);
         }}></input>
@@ -773,37 +734,27 @@ const posts = [
 
 
             <div className="">
-                <label className="form__label" for="productDescription"><i><b>Description:</b></i></label>
-                <br></br>
-                <input type = "text" value={description} name= "email" onChange={e => {
-          console.log(e.target.value);
-        setDescription(e.target.value);
-        }}></input>
-            </div>
-
-
-            <div className="">
                 <label className="form__label" for="vendor"><i><b>Vendor:</b></i></label>
                 <br></br>
-                <input type = "text" value={vendor} name= "email" onChange={e => {
+                <input type = "text" value={vendor} name= "vendor" onChange={e => {
           console.log(e.target.value);
         setVendor(e.target.value);
         }}></input>
             </div>
 
             <div className="">
-                <label className="form__label" for="seo"><i><b>SEO rank:</b></i></label>
+                <label className="form__label" for="description"><i><b>description:</b></i></label>
                 <br></br>
-                <input type = "text" value={seo} name= "email" onChange={e => {
+                <input type = "text" value={description} name= "description" onChange={e => {
           console.log(e.target.value);
-        setSEO(e.target.value);
+        setDescription(e.target.value);
         }}></input>
             </div>
             
             <div className="">
                 <label className="form__label" for="ImageURL"><i><b>ImageURL:</b></i></label>
                 <br></br>
-                <input type = "text" value={imageURL} name= "email" onChange={e => {
+                <input type = "text" value={imageURL} name= "imageURL" onChange={e => {
           console.log(e.target.value);
         setImageURL(e.target.value);
         }}></input>
@@ -813,7 +764,10 @@ const posts = [
             <div className="register">
             <button type="submit" class="btn">Register Product</button>
             </div>
-        </div>
+           
+        </div> 
+      </form> 
+    </div> 
 </div>
 
     );
