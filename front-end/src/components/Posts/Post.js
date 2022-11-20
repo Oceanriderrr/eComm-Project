@@ -1,14 +1,17 @@
 import "./Post.css";
-
+import { useState, useEffect } from "react";
+import { getAllProducts } from "../../services";
 function Post(props) {
+
+
     return (
 
 <div class="product-item-div">
 
 <li class="product-card">
-      <a class="product-card__link" href="/details/product/:productId"><img class="card__image" alt={props.seo} src="https://picsum.photos/400?image=550" />
+      <a class="product-card__link" href="/details/product/{}"><img class="card__image" alt={props.seo} src={props.imageURL} />
         <div class="product-card__text">
-          {props.productName}
+          {props.name}
         </div>
         <div class="product-card__price">${props.price}</div>
         
