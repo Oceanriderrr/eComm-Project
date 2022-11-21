@@ -1,6 +1,6 @@
 .login-box {
     position: absolute;
-    top: 50%;
+    bottom: 0%;
     left: 50%;
     width: 400px;
     padding: 40px;
@@ -9,6 +9,8 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+
+    border: 1px solid white;
   }
   
   .login-box h2 {
@@ -53,7 +55,7 @@
   }
   
   .login-box form a {
-    position: relative;
+    position: absolute;
     display: inline-block;
     padding: 10px 20px;
     color: #03e9f4;

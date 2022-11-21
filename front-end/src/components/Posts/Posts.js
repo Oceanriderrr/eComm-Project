@@ -1,8 +1,15 @@
 import "./Post.css";
+import { Link } from 'react-router-dom';
+
 
 function Posts(props) {
-    return (
 
+
+  
+    return (
+      <div class="pageContent">
+
+     <Link to="/create/product">Create New Product</Link>
       <div className="product-container">
 
     
@@ -10,7 +17,7 @@ function Posts(props) {
     {props.children}
      </ul>
       </div>
-
+ </div>
     );
   }
   

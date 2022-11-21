@@ -13,7 +13,7 @@ export default function userRegister(data){
     console.log(options);
     return fetch(url, options)
             .then(response => {
-                console.log(response);
+                console.log(response.cookie);
             return response.json()} )
             .catch(error =>{
                 console.log(error)

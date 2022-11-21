@@ -415,27 +415,7 @@ a{
 	transition: all 400ms ease;
 }
 
-.iconDiv{
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-
-}
-
-.iconDiv{
-  position: absolute;
-  right: 0;
-  top:33%;
-
-}
-
-@media (max-width: 740px){
-  .iconDiv{
-    position: relative;
-    margin-top: 1em;
-  }
-}
 
 .headerSearch{
   width: 100%;;
@@ -466,9 +446,69 @@ background-color: rgba(255,255,255,1);
 color: black;
 }
 
+.navBar {
+  position: relative;
+}
+
+.navBar button {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.menuNav {
+  overflow-y: scroll;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  background: #121212;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  max-width: 290px;
+  z-index: 9;
+}
+
+.menuNav.showMenu {
+  width: 100%;
+}
 
 
 
+.menuNav li:first-child {
+  margin-top: 7rem;
+}
+
+.active{
+  background-color: none;
+}
+
+.iconDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.iconDiv{
+  position: relative;
+  right: 0;
+  top:33%;
+  margin-top:2em;
+
+}
+
+@media (max-width: 740px){
+  .iconDiv{
+    position: relative;
+    margin-top: 1em;
+  }
+}
 
 
 
