@@ -1,0 +1,130 @@
+.details-wrapper {
+  height: 100vh;
+  position: relative;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 2em;
+  margin:2em;
+}
+
+.details-card {
+  max-width: 65rem;
+  position: relative;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: -2rem 2rem 3.2rem rgba(0, 0, 0, 0.2);
+}
+
+.product-left {
+  height: 100%;
+  width: 70%;
+  padding: 4rem 2rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  color: #fff;
+}
+
+.product-right {
+  background: #fff;
+  height: auto;
+  width: 100%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-right img {
+  height: 30rem;
+}
+
+.details-header h1 {
+  text-transform: uppercase;
+  margin: 2rem 0;
+   font-size: 2.5rem;
+}
+
+/* Price */
+
+.details-header h2 {
+  margin: 0rem 0 2rem 0;
+  font-weight: 300;
+  }
+
+/* Product Description */
+
+.product-main p {
+  opacity: 0.5;
+  margin: 2rem 0;
+  line-height: 1.45;
+}
+
+.focus {
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  padding: 0 0 0.9rem 0;
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.3);
+}
+
+.focus span:last-child {
+  margin: 0 0 0 1rem;
+  width: 100%;
+}
+
+.focus span:first-child {
+  border-bottom: 0.2rem solid #fff;
+  padding: 0 0 0.9rem 0;
+}
+
+/* Choose color / quantity  */
+
+.btns-group {
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+/* Total Price  */
+
+.product-total {
+  margin: 0 0 2rem 0;
+}
+
+.product-total p {
+  font-weight: 700;
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.product-total h3{
+  margin: 0 0 1rem 0;
+}
+
+
+/* Add to cart button  */
+
+.product-add {
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 5rem;
+  transition: all 0.5s ease-out;
+}
+
+.product-add:hover {
+  background-color: #fff;
+  color: #2e282a;
+}
+
+.product-btns a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

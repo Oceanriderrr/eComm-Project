@@ -10,6 +10,8 @@ const productSchema = new mongoose.Schema({
     vendor:{type: String, },
     description:{type: String, },
     imageURL : {type: String,validate: validImage},
+    creator : { type: ObjectId,
+        ref: "User"}
 
 });
 

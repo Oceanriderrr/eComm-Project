@@ -9,12 +9,16 @@ let options = {
 
 export default function userLogin(data){
     console.log(data);
-    options.body= JSON.stringify(data);
+    options.body = JSON.stringify(data);
     console.log(options);
-    return fetch(url, options)
-            .then(data => data.json() )
-            .catch(error =>{
-                console.log(error)
-                return error;
-            });
+    //turn our javascript object to a json object then do the fetch
+    return fetch(url,options)
+    .then(response => {
+        console.log(response.cookies);
+       return response.json();
+})
+    .catch(error=>{
+        console.error(error)
+        return error;
+    })
 }
