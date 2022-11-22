@@ -2,7 +2,7 @@ import "./Pages.css"
 import "./css/Register.css"
 
 
-import "./css/Login.css"
+
 
 import "./css/details.css"
 

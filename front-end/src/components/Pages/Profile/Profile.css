@@ -1,0 +1,10 @@
+.ordersDiv{
+    margin-bottom:5em;
+    width:30vw;
+    min-width:400px;
+}
+
+.profile-icon{
+    border:1px solid white;
+    border-radius:50%;
+}

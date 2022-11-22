@@ -13,7 +13,7 @@ import "../src/components/Pages/Pages.css"
 import "../src/components/Pages/css/Register.css"
 
 
-import "../src/components/Pages/css/Login.css"
+// import "../src/components/Pages/css/Login.css"
 
 import "../src/components/Pages/css/details.css"
 

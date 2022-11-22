@@ -74,3 +74,346 @@
       column-count: 4;
     }
   }
+
+
+
+
+
+
+/* Home page CSS */
+
+
+
+a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Raleway"
+}
+a:active {
+  color: #fff;
+}
+a:visited {
+  color: #fff;
+}
+p {
+    font-family: "Raleway", Times, serif;
+}
+ul {
+    list-style-type: square;
+}
+li {
+    font-family: "raleway";
+    color: #fff;
+    margin-top: 8px;
+    font-size: 1.25vw;
+}
+.page {
+  display: flex;
+  grid-template-columns: 20% auto;
+  margin: 20px;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.sidebar {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/side.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100% - 40px);
+  margin-left: 10px;
+  position: fixed;
+  width: calc(20% - 35px);
+  color: #fff;
+  display: grid;
+  grid-template-rows: 25% 50% 25%;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar-logo {
+  display: block;
+  width: 13vw;
+  height: 84px;
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/logosmallwhite-1-84x29.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+.sidebar-menu {
+  height: 120px;
+  display: grid;
+  align-items: center;
+  justify-content: left;
+}
+.sidebar-menu-item {
+  border-top: 1px dotted rgba(96, 96, 96, 0.7);
+  display: flex;
+  line-height: 40px;
+  width: 15vw;
+  vertical-align: middle;
+  padding-left: 15px;
+}
+.sidebar-menu a {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.sidebar-menu-item:hover {
+  background-color: #000;
+      -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+.sidebar-menu :first-child {
+  border-top: 0px;
+}
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-footer p {
+    font-size: 1vw;
+}
+.main {
+ 
+  display: grid;
+  grid-column-start: 2;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px repeat(6,18vw);
+}
+#portfolio-item {
+  background-color: #262626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    box-shadow: 0 8px 6px -7px #2d2c2c;
+}
+@keyframes animatedBackground {
+	from { background-position: 100% -50px; }
+	to { background-position: 0 -50px; }
+}
+.welcome-banner {
+  grid-column: 1 / 5;
+  background-color: #262626;
+	background-image: url("https://overbord.no/wp-content/uploads/2018/04/banner-1.jpg");
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	animation: animatedBackground 30s linear infinite;
+}
+.welcome-banner-content {
+ display: grid;
+  position: absolute;
+  left: 23%;
+}
+.welcome-banner-title {
+  font-family: "Raleway";
+  font-weight: 200;
+  font-style: normal;
+  font-size: 3em;
+  color: #fff;
+  position: relative;
+}
+.blink {
+  animation: blink 0.5s infinite;
+}
+@keyframes blink{
+  to { opacity: .0; }
+}
+.typewriter {
+  display: flex;
+}
+.header-sub-title {
+  color: #fff;
+  font-family: "Raleway";
+  font-size: 3em;
+  letter-spacing: 2px;
+  margin-left: -15px;
+  margin-top: -10px;
+  margin-bottom: -20px;
+    padding: 0.3em;
+  text-align: left;
+}
+.welcome-banner-overbord {
+  font-family: "Raleway";
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #fff;
+  margin-left: -3px;
+  margin-top: 20px;
+}
+.welcome-banner-about {
+  font-family: "Raleway";
+  color: #898989;
+  font-size: 9px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+.info-box {
+    padding: 15px;
+}
+.info-box-title {
+    color: #fff;
+    font-family: "Raleway";
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+.info-box p {
+    color: #fff;
+    line-height: 25px;
+    font-size: 1.4vw;
+}
+.portfolio-item-1 {
+  background-color: #000;
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/sam-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+}
+.portfolio-item-2 {
+  grid-row: 2 / 3;
+}
+.portfolio-item-3 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/kayam-1-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-row: 2 / 3;
+}
+.portfolio-item-4 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/hot-grid-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 3 / 5;
+  grid-row: 3 / 4;
+}
+.portfolio-item-5 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/leegemma-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+.portfolio-item-6 {
+  grid-column: 2 / 3;
+  grid-row: 4 / 6;
+}
+.portfolio-item-7 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/la-ronciere-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 3 / 4;
+  grid-row: 4 / 5;
+}
+.portfolio-item-8 {
+    background-image: url("https://overbord.no/wp-content/uploads/2018/04/retrobode.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 4 / 5;
+  grid-row: 4 / 5;
+}
+
+.portfolio-item-9 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/templehill-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+}
+.portfolio-item-10 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/jess-summers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    grid-column: 3 / 5;
+  grid-row: 5 / 7;
+}
+.portfolio-item-11 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/kyle-grid.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    grid-column: 1 / 3;
+  grid-row: 6 / 7;
+}
+.portfolio-item-12 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/south-west-digital.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / 3;
+  grid-row: 7 / 8;
+}
+.portfolio-item-13 {
+  grid-column: 3 / 4;
+  grid-row: 7 / 8;
+}
+.portfolio-item-13 a {
+    height: 100%;
+    width: 100%;
+}
+.portfolio-item-14 {
+  background-image: url("https://overbord.no/wp-content/uploads/2018/04/projectbase.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 4 / 5;
+  grid-row: 7 / 8;
+}
+.top-margin {
+  position: fixed;
+  top: 0px;
+  height: 20px;
+  width: 100%;
+  background-color: #fff;
+    z-index: 9999;
+}
+.bottom-margin {
+  position: fixed;
+  bottom: 0px;
+  height: 20px;
+  width: 100%;
+  background-color: #fff;
+    z-index: 9999;
+}
+
+* {box-sizing: border-box}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.container:hover .overlay {
+  opacity: 1;
+}
+.item-desc {
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    font-size: 1vw;
+}
+.item-title {
+    font-weight: 600;
+    letter-spacing: 7px;
+    font-size: 1.1vw;
+}

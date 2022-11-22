@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {userLogin} from "../../../services"   
 import {Navigate} from "react-router-dom";
-
+import './Login.css'
 import {useNavigate} from "react-router-dom";
 
 function Login(props) {
@@ -55,7 +55,7 @@ function Login(props) {
 	}
 	return (
 		<div className="pageContent">
-		<div className="container">
+	
 
 
         <div className="login-box">
@@ -82,7 +82,7 @@ function Login(props) {
                 <button type="submit">Login</button>
                 </div>
             </form>
-        </div>
+        
 				</div>
       </div>              
 	);
