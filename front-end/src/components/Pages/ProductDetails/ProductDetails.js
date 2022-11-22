@@ -16,6 +16,7 @@ import { useParams } from 'react-router-dom';
 
 
 
+
   function ProductDetails(props) {
     const [posts,setPosts] = useState([]);
     const [products,setProducts] = useState([]);
@@ -39,6 +40,7 @@ import { useParams } from 'react-router-dom';
           return item;
       });
       setPosts(data);
+
   })
   },[])
   
@@ -56,6 +58,7 @@ import { useParams } from 'react-router-dom';
   
       return(   
          
+
 
         <div class="pageContent">
         
@@ -112,9 +115,11 @@ import { useParams } from 'react-router-dom';
     
     )} */}
   </div>
+
   
             </div>
        );
     }
   
     export default ProductDetails;
+

@@ -3,7 +3,6 @@ import {userLogin} from "../../../services"
 import {Navigate} from "react-router-dom";
 import './Login.css'
 import {useNavigate} from "react-router-dom";
-
 function Login(props) {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -18,19 +17,11 @@ function Login(props) {
 		if (username.length === 0) {
 			//error
 			console.log("no username");
-			alert("Enter a username you stupid meatball")
 			hasError = true;
 		}
 		if (password.length === 0) {
 			//error
 			console.log("no password");
-			alert("Enter a password you stupid meatball")
-			hasError = true;
-		}
-		if (password.length === 0 && username.length === 0) {
-			//error
-			console.log("nothing entered");
-			alert("You didnt enter anything you stupid meatball")
 			hasError = true;
 		}
 
