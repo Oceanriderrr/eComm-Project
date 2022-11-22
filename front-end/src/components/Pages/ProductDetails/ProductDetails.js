@@ -9,6 +9,7 @@ import Post from '../../Posts/Post'
 
 function ProductDetails(props) {
   const [posts,setPosts] = useState([]);
+  const [products,setProducts] = useState([]);
   console.log(props);
   console.log("above is the productDetails Props")
 
@@ -33,16 +34,22 @@ useEffect(()=>{
 },[])
 
 
+const deleteProduct = (item) =>{
+  console.warn(item._id)
+}
 
-
-  
+  const getProducts = async ()=>{
+    let result = await fetch('https://localhost:5000/api/product')
+    result= await result.json;
+    setProducts(result);
+  }
   
 
     return(
       <div class="pageContent">
 <div>
   <Link to={`/edit/product/${productId}`}>Edit</Link>
-  <Link>Delete</Link>
+  <Link><span >Delete</span></Link>
 </div>
 
 <div class="details-wrapper">
@@ -78,6 +85,19 @@ useEffect(()=>{
       <img src="{props.imageURL}" alt=""></img>
     </div>
   </div>
+{/* {
+  products.map((item,index)=>
+  
+ <ul key={item}>
+  <li>{index+1}</li>
+  <li>{item.name+1}</li>
+  <li>{item.description}</li>
+  <li>{item.imageURL}</li>
+  <li>{item.vendor}</li>
+  <li><button onClick={()=>deleteProduct(item._id)}>Delete</button></li>
+ </ul>
+  
+  )} */}
 </div>
 
           </div>
