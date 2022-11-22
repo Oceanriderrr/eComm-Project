@@ -10,7 +10,9 @@ import { useParams } from 'react-router-dom';
 
 
 function ProductDetails(props) {
+
   const { id } = useParams();
+
 
   const [posts, setPosts] = useState([]);
   console.log(props);
@@ -28,19 +30,27 @@ function ProductDetails(props) {
     });
   }, []);
 
+
+=======
   return (
     <DetailsProduct id={id} post={posts} />
   );
 
 
-  
+  const getProducts = async ()=>{
+    let result = await fetch('https://localhost:5000/api/product')
+    result= await result.json;
+    setProducts(result);
+  }
   
     /*
     return(
       <div class="pageContent">
 <div>
+
   <Link to={`/edit/product/${id}`}>Edit</Link>
   <Link>Delete</Link>
+
 </div>
 
 <div class="details-wrapper">
@@ -76,6 +86,19 @@ function ProductDetails(props) {
       <img src="{props.imageURL}" alt=""></img>
     </div>
   </div>
+{/* {
+  products.map((item,index)=>
+  
+ <ul key={item}>
+  <li>{index+1}</li>
+  <li>{item.name+1}</li>
+  <li>{item.description}</li>
+  <li>{item.imageURL}</li>
+  <li>{item.vendor}</li>
+  <li><button onClick={()=>deleteProduct(item._id)}>Delete</button></li>
+ </ul>
+  
+  )} */}
 </div>
 
           </div>
