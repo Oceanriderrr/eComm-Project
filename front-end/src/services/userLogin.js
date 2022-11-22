@@ -8,17 +8,17 @@ let options = {
 }
 
 export default function userLogin(data){
-    console.log(data);
+    // console.log(data);
     options.body = JSON.stringify(data);
-    console.log(options);
+    // console.log(options);
     //turn our javascript object to a json object then do the fetch
     return fetch(url,options)
     .then(response => {
-        console.log(response.cookies);
+        // console.log(response.cookies);
        return response.json();
 })
     .catch(error=>{
-        console.error(error)
+        // console.error(error)
         return error;
     })
 }

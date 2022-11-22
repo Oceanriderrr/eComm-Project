@@ -55,6 +55,7 @@ function App(props) {
 	const [loggedIn, setLoggedIn] = useState(
 		cookies["x-auth-token"] ? true : false
 	);
+  const [id,setId] = useState("")
 
 
 	console.log(loggedIn);
@@ -79,8 +80,8 @@ function App(props) {
 
     <Route path = "/products" element={<Products  loggedIn={loggedIn} />}/>
 
-    <Route path = "/details/product/:id" element={<ProductDetails userId={userId} />}/>
-
+    <Route path = "details/product/:id" element={<ProductDetails id={id} userId={userId} />}/>
+{/* <Route exact path ="/product/:id"  component={<ProductDetails/>} /> */}
 
     <Route path = "/collections" element={<Collections  loggedIn={loggedIn}  />}/>
 
