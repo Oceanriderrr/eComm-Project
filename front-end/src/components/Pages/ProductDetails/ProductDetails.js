@@ -1,42 +1,41 @@
 import React, {useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
-import {getDetails} from '../../../services'
-import Posts from '../../Posts/Posts'
-import Post from '../../Posts/Post'
+import {getDetails} from '../../../services';
+// import Posts from '../../Posts/Posts';
+// import Post from '../../Posts/Post';
+import DetailsProduct from '../../DetailsProduct/DetailsProduct';
+import { useParams } from 'react-router-dom';
 
 
 
 
 function ProductDetails(props) {
-  const [posts,setPosts] = useState([]);
-  const [products,setProducts] = useState([]);
+
+  const { id } = useParams();
+
+
+  const [posts, setPosts] = useState([]);
   console.log(props);
-  console.log("above is the productDetails Props")
+  console.log("above is the productDetails Props");
 
-let url = window.location.pathname;
+  let url = window.location.pathname;
 
-let productId = url.split("/").pop();
+  useEffect(()=>{
+    getDetails(id).then(data=>{
 
-console.log(productId);
-
-useEffect(()=>{
-  getDetails(productId).then(data=>{
-
-    //setPosts(data);
-    console.log("below is the data product details is rendering")
-    console.log(data);
-    data.map(item=>{
-
-        return item;
+      //setPosts(data);
+      console.log("below is the data product details is rendering");
+      console.log(data);
+      setPosts(data);
     });
-    setPosts(data);
-})
-},[])
+  }, []);
 
 
-const deleteProduct = (item) =>{
-  console.warn(item._id)
-}
+=======
+  return (
+    <DetailsProduct id={id} post={posts} />
+  );
+
 
   const getProducts = async ()=>{
     let result = await fetch('https://localhost:5000/api/product')
@@ -44,12 +43,14 @@ const deleteProduct = (item) =>{
     setProducts(result);
   }
   
-
+    /*
     return(
       <div class="pageContent">
 <div>
-  <Link to={`/edit/product/${productId}`}>Edit</Link>
-  <Link><span >Delete</span></Link>
+
+  <Link to={`/edit/product/${id}`}>Edit</Link>
+  <Link>Delete</Link>
+
 </div>
 
 <div class="details-wrapper">
@@ -102,6 +103,7 @@ const deleteProduct = (item) =>{
 
           </div>
      );
+     */
   }
 
   export default ProductDetails;

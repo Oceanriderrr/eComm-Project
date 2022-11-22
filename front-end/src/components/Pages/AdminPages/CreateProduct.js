@@ -1,6 +1,7 @@
 import {useState,useEffect} from "react";
 import { Navigate, useNavigate} from "react-router-dom";
-import {createProduct} from '../../../services'
+import {createProduct} from '../../../services';
+import { useCookies } from 'react-cookie';
 
 function CreateProduct(props){
 
@@ -11,6 +12,7 @@ function CreateProduct(props){
     const [vendor, setVendor] = useState("");
     const [description, setDescription] = useState("");
     const [imageURL, setImageURL] = useState("");
+    const [cookies, setCookie] = useCookies(['x-auth-token']);
 
     const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ function CreateProduct(props){
           description,
           imageURL,
           
-        },props.cookie).then((data)=>{
+        }, cookies['x-auth-token']).then((data)=>{
           console.log(data);
       setDescription("");
    
