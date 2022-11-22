@@ -3,7 +3,7 @@ import {useState,useEffect} from "react";
 import {getAllProducts, getUser } from '../../../services'
 
 import {Navigate} from "react-router-dom";
-
+import './Profile.css'
 import Post from "../../Posts/Post";
 
 function Profile(props){
@@ -11,23 +11,28 @@ function Profile(props){
 	const [postNum, setPostNum] = useState(0);
 	const [posts, setPosts] = useState([]);
 
+
+	console.log("below is the profile props");
+	console.log(props)
     function runFetch() {
 		getAllProducts({
 			id: props.userId,
 		}).then((data) => {
 			console.log(data);
 			getUser({
+				
 				id: props.userId,
 			}).then((user) => {
+				console.log("below is getUser Data on Profile page")
 				console.log(data);
 				setPostNum(data.length);
 				setUsername(user.username);
 				data = data.reverse().slice(0, 3);
 				data = data.map(item=>{
-					item.author = user.username;
+					// item.author = user.username;
 					return item;
 				});
-
+				console.log("below is the Profile DATA")
 				console.log(data);
 				let newData = JSON.stringify(data);
 				let oldData = JSON.stringify(posts);
@@ -62,18 +67,15 @@ function Profile(props){
     
     <div className="pageContent">      
 <div className="Profile">
-			<img src="https://via.placeholder.com/150" alt="profile" />
+			<img class="profile-icon" src="https://freesvg.org/img/abstract-user-flat-4.png" height={"150px"} alt="profile" />
 			<div className="personal-info">
 				<p>
-					<span>Username: </span>
-        {props.username}
+					<span>UserID: </span>
+        {props.userId}
 				</p>
-				<p>
-					<span>Posts: </span>
-				
-				</p>
+	
 			</div>
-			<div>
+			<div class="ordersDiv">
 				<h2>Your Most Recent Orders</h2>
 				{ordersArray}
 			</div>

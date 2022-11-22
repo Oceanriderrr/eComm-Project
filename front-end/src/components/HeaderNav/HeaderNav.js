@@ -63,13 +63,13 @@ function clickHandler(event){
 
 <li>
 <Link to="/swap">
-SWAP
+Swap
 </Link>
 </li>, 
 
 <li>
 <Link to="/create/product">
-CREATE
+Create
 </Link>
 </li>, 
 
@@ -106,7 +106,7 @@ CREATE
 <div>
 <header>
 <nav id='cssmenu'>
-<div class="logo"><a href="#">L.E.U.M.A.S </a></div>
+<div class="logo"><a href="/">L.E.U.M.A.S </a></div>
 <div id="head-mobile"></div>
 <div  onClick={handleToggle} id="dropdown" class="button">{navbarOpen}</div>
 <ul>    
@@ -121,7 +121,7 @@ CREATE
             </Link>
    </li>
    
-   <li><Link to='/products'>PRODUCTS</Link>
+   <li><Link to='/products'>Products</Link>
             <ul>
                <li><Link to='#'>Product 1</Link>
                   <ul>
@@ -174,7 +174,7 @@ CREATE
 </header>
 
 <nav className="navBar">
-    <button>{navbarOpen}</button>
+    <button class="hide-this">{navbarOpen}</button>
     <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
     <li>
             <Link to="/">

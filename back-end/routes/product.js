@@ -8,6 +8,8 @@ router.post('/create/product', auth(), controllers.product.post.createProduct)
 
 router.get('/details/product/:id', controllers.product.product.getOneProduct);
 
+router.get('/edit/product/:id', controllers.product.product.getOneProduct);
+
 router.post('/', auth(), controllers.product.post.createProduct);
 
 router.put('/:id', auth(), controllers.product.put);
