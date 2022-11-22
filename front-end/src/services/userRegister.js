@@ -8,12 +8,12 @@ let options = {
 }
 
 export default function userRegister(data){
-    console.log(data);
+    // console.log(data);
     options.body= JSON.stringify(data);
-    console.log(options);
+    // console.log(options);
     return fetch(url, options)
             .then(response => {
-                console.log(response.cookie);
+                // console.log(response.cookie);
             return response.json()} )
             .catch(error =>{
                 console.log(error)

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 function Posts(props) {
 
-
+console.log("These are Posts props below");
+console.log(props);
   
     return (
       <div class="pageContent">

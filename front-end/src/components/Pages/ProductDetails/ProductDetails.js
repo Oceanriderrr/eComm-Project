@@ -1,37 +1,39 @@
-import {useState,useEffect} from "react";
+import React, {useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
 import {getDetails} from '../../../services'
 import Posts from '../../Posts/Posts'
 import Post from '../../Posts/Post'
+
+
+
+
 function ProductDetails(props) {
-    const [posts,setPosts] = useState([]);
-    const [name,setName] = useState("")
-    const [vendor,setVendor] = useState("")
-    const [description,setDescription] = useState("")
-    const [price,setPrice] = useState("")
-    const [quantity,setQuantity] = useState("")
-    const [imageURL,setImageURL] = useState("")
-    
-    let url = props._id
+  const [posts,setPosts] = useState([]);
+  console.log(props);
+  console.log("above is the productDetails Props")
+
+let url = window.location.pathname;
+
+let productId = url.split("/").pop();
+
+console.log(productId);
+
+useEffect(()=>{
+  getDetails(productId).then(data=>{
+
+    //setPosts(data);
+    console.log("below is the data product details is rendering")
+    console.log(data);
+    data.map(item=>{
+
+        return item;
+    });
+    setPosts(data);
+})
+},[])
 
 
 
-    useEffect(()=>{
-      getDetails({
-        id: props._id,
-      })
-      
-      .then(data=>{
-        console.log(data._id);
-        console.log("above is the id");
-        console.log(props);
-        console.log("above is the props on getDetails page")
-          //setPosts(data);
-          console.log(data);
-
-
-      })
-  },[])
 
   
   
@@ -39,7 +41,7 @@ function ProductDetails(props) {
     return(
       <div class="pageContent">
 <div>
-  <Link to={`/edit/product/`}>Edit</Link>
+  <Link to={`/edit/product/${productId}`}>Edit</Link>
   <Link>Delete</Link>
 </div>
 

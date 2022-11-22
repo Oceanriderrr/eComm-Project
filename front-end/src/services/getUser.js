@@ -10,7 +10,7 @@ export default function getUser(data){
     const url = "http://localhost:5000/api/user/"+data.id;
     return fetch(url,options)
     .then(response => {
-        console.log(response.cookies);
+        // console.log(response.cookies);
        return response.json();
 })
     .catch(error=>{
