@@ -1,47 +1,45 @@
 import React, {useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
-import {getDetails} from '../../../services'
-import Posts from '../../Posts/Posts'
-import Post from '../../Posts/Post'
+import {getDetails} from '../../../services';
+// import Posts from '../../Posts/Posts';
+// import Post from '../../Posts/Post';
+import DetailsProduct from '../../DetailsProduct/DetailsProduct';
+import { useParams } from 'react-router-dom';
 
 
 
 
 function ProductDetails(props) {
-  const [posts,setPosts] = useState([]);
+  const { id } = useParams();
+
+  const [posts, setPosts] = useState([]);
   console.log(props);
-  console.log("above is the productDetails Props")
+  console.log("above is the productDetails Props");
 
-let url = window.location.pathname;
+  let url = window.location.pathname;
 
-let productId = url.split("/").pop();
+  useEffect(()=>{
+    getDetails(id).then(data=>{
 
-console.log(productId);
-
-useEffect(()=>{
-  getDetails(productId).then(data=>{
-
-    //setPosts(data);
-    console.log("below is the data product details is rendering")
-    console.log(data);
-    data.map(item=>{
-
-        return item;
+      //setPosts(data);
+      console.log("below is the data product details is rendering");
+      console.log(data);
+      setPosts(data);
     });
-    setPosts(data);
-})
-},[])
+  }, []);
 
-
+  return (
+    <DetailsProduct id={id} post={posts} />
+  );
 
 
   
   
-
+    /*
     return(
       <div class="pageContent">
 <div>
-  <Link to={`/edit/product/${productId}`}>Edit</Link>
+  <Link to={`/edit/product/${id}`}>Edit</Link>
   <Link>Delete</Link>
 </div>
 
@@ -82,6 +80,7 @@ useEffect(()=>{
 
           </div>
      );
+     */
   }
 
   export default ProductDetails;
