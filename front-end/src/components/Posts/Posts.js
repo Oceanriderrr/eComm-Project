@@ -9,8 +9,8 @@ console.log(props);
   
     return (
       <div class="pageContent">
-
-     <Link to="/create/product">Create New Product</Link>
+        <Link to="/create/product">Create New Product</Link>
+   
       <div className="product-container">
 
     

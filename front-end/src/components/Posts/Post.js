@@ -5,7 +5,7 @@ import { getAllProducts } from "../../services";
 import { Link } from 'react-router-dom';
 function Post(props) {
 console.log(props);
-console.log("above is props")
+console.log("above is props");
 
     return (
 
